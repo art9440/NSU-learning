@@ -13,7 +13,7 @@ int main(){
         }
         else {
             insert(avl_tree, height, number);
-            if (balance_factor(avl_tree) == 0);
+            balance(avl_tree);
         }
     }
 

@@ -48,7 +48,7 @@ void insert(TREE * T, int height, int number){
     }
 }
 
-int balance_factor(TREE * T){
+void balance(TREE * T){
 
 }
 
