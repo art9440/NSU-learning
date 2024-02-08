@@ -13,8 +13,8 @@ int main(){
         }
         else {
             insert(avl_tree, height, number);
-            balance(avl_tree);
         }
     }
+    scanf("%d", get_height);
 
 }

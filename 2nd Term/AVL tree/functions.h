@@ -14,6 +14,31 @@ TREE{
     TREE * right;
 };
 
+int max(int num1, int num2){
+    if (num1 > num2)
+        return num1;
+    return num2;
+}
+
+void balance(TREE * T){
+
+}
+
+int get_height(TREE * T){
+    if (T == NULL)
+        return -1;
+    return T->height;
+}
+
+int new_height(TREE * T){
+    if (T == NULL)
+        return 0;
+    return max(get_height(T->left), get_height(T-> right)) + 1;
+}
+
+int vol_balance(TREE * T){
+    return get_height(T->right) - get_height(T->left);
+}
 
 TREE * create(int height, int number){
     TREE * cur;
@@ -45,12 +70,9 @@ void insert(TREE * T, int height, int number){
             else
                 insert(T -> right, height + 1, number);
         }
+        balance(T);
+        new_height(T);
     }
 }
-
-void balance(TREE * T){
-
-}
-
 
 #endif
