@@ -7,14 +7,13 @@ int main(){
     scanf("%d", &num_of_tops);
     for (int i = 0; i < num_of_tops; i++){
         scanf("%d", &number);
-        if (height == 0) {
+        if (avl_tree == NULL) {
             avl_tree = create(height, number);
-            height++;
         }
         else {
             insert(avl_tree, height, number);
-            balance(avl_tree);
         }
     }
+    printf("%d", get_height(avl_tree) + 1);
 
 }
