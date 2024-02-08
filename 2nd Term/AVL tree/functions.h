@@ -91,10 +91,11 @@ void balance(TREE * T){
 TREE * create(int height, int number){
     TREE * cur;
     cur =(TREE*)malloc(sizeof (TREE));
-    if (cur == NULL)
+    cur -> height = height;
+    /*if (cur == NULL)
         cur -> height = height;
     else
-        cur -> height = -1;
+        cur -> height = -1;*/
     cur -> num = number;
     cur -> right = NULL;
     cur -> left = NULL;
