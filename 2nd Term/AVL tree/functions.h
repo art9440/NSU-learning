@@ -52,6 +52,7 @@ void rotate_right(TREE * T){
     new_height(T);
 }
 
+
 void rotate_left(TREE * T){
     swap(T, T->right);
     TREE * child = T->left;
@@ -90,7 +91,10 @@ void balance(TREE * T){
 TREE * create(int height, int number){
     TREE * cur;
     cur =(TREE*)malloc(sizeof (TREE));
-    cur -> height = height;
+    if (cur == NULL)
+        cur -> height = height;
+    else
+        cur -> height = -1;
     cur -> num = number;
     cur -> right = NULL;
     cur -> left = NULL;
@@ -100,26 +104,25 @@ TREE * create(int height, int number){
 
 void insert(TREE * T, int height, int number){
     TREE * child;
-    if (T != NULL){
         if (number < T -> num){
             if (T -> left == NULL) {
-                child = create(height + 1, number);
+                child = create(height, number);
                 T->left = child;
             }
             else
-                insert(T -> left, height + 1, number);
+                insert(T -> left, height, number);
         }
         else if (number >= T -> num) {
             if (T -> right == NULL) {
-                child = create(height + 1, number);
+                child = create(height, number);
                 T->right = child;
             }
             else
-                insert(T -> right, height + 1, number);
+                insert(T -> right, height, number);
         }
         new_height(T);
         balance(T);
-    }
+
 }
 
 #endif
