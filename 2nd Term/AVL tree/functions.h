@@ -90,7 +90,7 @@ void balance(TREE * T){
 TREE * create(int height, int number){
     TREE * cur;
     cur =(TREE*)malloc(sizeof (TREE));
-    cur -> height = height + 1;
+    cur -> height = height;
     cur -> num = number;
     cur -> right = NULL;
     cur -> left = NULL;
@@ -103,7 +103,7 @@ void insert(TREE * T, int height, int number){
     if (T != NULL){
         if (number < T -> num){
             if (T -> left == NULL) {
-                child = create(height, number);
+                child = create(height + 1, number);
                 T->left = child;
             }
             else
@@ -111,7 +111,7 @@ void insert(TREE * T, int height, int number){
         }
         else if (number >= T -> num) {
             if (T -> right == NULL) {
-                child = create(height, number);
+                child = create(height + 1, number);
                 T->right = child;
             }
             else
