@@ -92,10 +92,6 @@ TREE * create(int height, int number){
     TREE * cur;
     cur =(TREE*)malloc(sizeof (TREE));
     cur -> height = height;
-    /*if (cur == NULL)
-        cur -> height = height;
-    else
-        cur -> height = -1;*/
     cur -> num = number;
     cur -> right = NULL;
     cur -> left = NULL;
