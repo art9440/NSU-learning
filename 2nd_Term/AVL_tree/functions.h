@@ -41,6 +41,7 @@ void swap(TREE * a, TREE * b){
     b -> num = a_num;
 }
 
+
 void rotate_right(TREE * T){
     swap(T, T->left);
     TREE * child = T->right;
@@ -62,7 +63,6 @@ void rotate_left(TREE * T){
     T->left->left = child;
     new_height(T->right);
     new_height(T);
-
 }
 
 
@@ -119,7 +119,6 @@ void insert(TREE * T, int height, int number){
         }
         new_height(T);
         balance(T);
-
 }
 
 #endif

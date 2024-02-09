@@ -15,5 +15,4 @@ int main(){
         }
     }
     printf("%d", get_height(avl_tree) + 1);
-
 }
