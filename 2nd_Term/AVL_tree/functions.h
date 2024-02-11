@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <malloc.h>
 
+
 #define TREE struct tree
 
 
@@ -92,25 +93,21 @@ TREE * create(int number){
 
 
 TREE * insert(TREE * T, int number){
-    TREE * child;
-        if (number < T -> num){
-            if (T -> left == NULL) {
-                child = create(number);
-                T->left = child;
-            }
-            else
-                insert(T -> left, number);
+    if (number < T -> num){
+        if (T -> left == NULL)
+            T->left = create(number);
+        else
+            insert(T -> left, number);
         }
-        else if (number >= T -> num) {
-            if (T -> right == NULL) {
-                child = create(number);
-                T->right = child;
-            }
-            else
-                insert(T -> right, number);
-        }
-        new_height(T);
-        return balance(T);
+    else if (number >= T -> num) {
+        if (T -> right == NULL)
+            T->right = create(number);
+        else
+            insert(T -> right, number);
+    }
+    new_height(T);
+    return balance(T);
 }
+
 
 #endif
