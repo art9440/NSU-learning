@@ -35,33 +35,20 @@ void new_height(TREE * T){
 }
 
 
-void swap(TREE * a, TREE * b){
-    int a_num = a ->num;
-    a -> num = b -> num;
-    b -> num = a_num;
-}
-
-
 void rotate_right(TREE * T){
-    swap(T, T->left);
-    TREE * child = T->right;
-    T->right = T->left;
-    T->left = T->right->left;
-    T->right->left = T->right->right;
-    T->right->right = child;
-    new_height(T->left);
+    TREE * child = T->left;
+    T->left = child -> right;
+    child -> right = T;
+    new_height(child);
     new_height(T);
 }
 
 
 void rotate_left(TREE * T){
-    swap(T, T->right);
-    TREE * child = T->left;
-    T->left = T->right;
-    T->right = T->left->right;
-    T->left->right = T->left->left;
-    T->left->left = child;
-    new_height(T->right);
+    TREE * child = T->right;
+    T->right = child -> left;
+    child -> left = T;
+    new_height(child);
     new_height(T);
 }
 
@@ -77,21 +64,21 @@ void balance(TREE * T){
     int bal = get_balance(T);
     if (bal == -2){
         if (get_balance(T->left) == 1)
-            rotate_left(T->left);
+            rotate_left(T);
         rotate_right(T);
     }
     else if(bal == 2){
         if (get_balance(T->left) == -1)
-            rotate_right(T->right);
+            rotate_right(T);
         rotate_left(T);
     }
 }
 
 
-TREE * create(int height, int number){
+TREE * create(int number){
     TREE * cur;
     cur =(TREE*)malloc(sizeof (TREE));
-    cur -> height = height;
+    cur -> height = 1;
     cur -> num = number;
     cur -> right = NULL;
     cur -> left = NULL;
@@ -99,23 +86,23 @@ TREE * create(int height, int number){
 }
 
 
-void insert(TREE * T, int height, int number){
+void insert(TREE * T, int number){
     TREE * child;
         if (number < T -> num){
             if (T -> left == NULL) {
-                child = create(height, number);
+                child = create(number);
                 T->left = child;
             }
             else
-                insert(T -> left, height, number);
+                insert(T -> left, number);
         }
         else if (number >= T -> num) {
             if (T -> right == NULL) {
-                child = create(height, number);
+                child = create(number);
                 T->right = child;
             }
             else
-                insert(T -> right, height, number);
+                insert(T -> right, number);
         }
         new_height(T);
         balance(T);
