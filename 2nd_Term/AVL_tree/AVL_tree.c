@@ -11,7 +11,7 @@ int main(){
             avl_tree = create(number);
         }
         else {
-            insert(avl_tree,number);
+            avl_tree = insert(avl_tree,number);
         }
     }
     printf("%d", get_height(avl_tree) + 1);
