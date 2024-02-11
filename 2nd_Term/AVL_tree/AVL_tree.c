@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "functions.h"
 
+
 int main(){
     int num_of_tops, number;
     TREE * avl_tree;
