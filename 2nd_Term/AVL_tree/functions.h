@@ -31,7 +31,7 @@ int get_height(TREE * T){
 }
 
 
-void new_height(TREE * T){
+void new_height(TREE * T){ //update of height of the element
     T->height = max(get_height(T->left), get_height(T->right)) + 1;
 }
 
@@ -56,14 +56,14 @@ TREE * rotate_left(TREE * T){
 }
 
 
-int get_balance(TREE * T){
+int get_balance(TREE * T){ //getting balance of the element
     if (T == NULL)
         return 0;
     return get_height(T->right) - get_height(T->left);
 }
 
 
-TREE * balance(TREE * T){
+TREE * balance(TREE * T){   //checking for balance and balancing of tree
     new_height(T);
     int bal = get_balance(T);
     if (bal == -2){
@@ -81,7 +81,7 @@ TREE * balance(TREE * T){
 }
 
 
-TREE * create(int number){
+TREE * create(int number){ //creating element of struct tree
     TREE * cur;
     cur =(TREE*)malloc(sizeof (TREE));
     cur -> height = 0;
@@ -92,7 +92,7 @@ TREE * create(int number){
 }
 
 
-TREE * insert(TREE * T, int number){
+TREE * insert(TREE * T, int number){  //inserting element in the tree
     if (number < T -> num){
         if (T -> left == NULL)
             T->left = create(number);
