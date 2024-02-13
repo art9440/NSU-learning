@@ -16,6 +16,7 @@ int main(){
         }
     }
     printf("%d", get_height(avl_tree) + 1);
+    del_tree(avl_tree);
 
     return 0;
 }

@@ -109,5 +109,12 @@ TREE * insert(TREE * T, int number){  //inserting element in the tree
     return balance(T);
 }
 
+void del_tree(TREE * T){
+    if (T != NULL){
+        del_tree(T->right);
+        del_tree(T->left);
+        free(T);
+    }
+}
 
 #endif
