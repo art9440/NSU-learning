@@ -1,5 +1,18 @@
 #include <stdio.h>
 #include "functions.h"
+#include <string.h>
+
+
+void orders(char* answer, TREE * avl_tree){
+    if (strcmp(answer, "postorder") == 0)
+        post_order(avl_tree);
+    else if (strcmp(answer, "preorder") == 0)
+        pre_order(avl_tree);
+    else if (strcmp(answer, "inorder") == 0)
+        in_order(avl_tree);
+    else
+        puts("incorrect input.");
+}
 
 
 int main(){
@@ -15,7 +28,12 @@ int main(){
             avl_tree = insert(avl_tree,number);
         }
     }
-    printf("%d", get_height(avl_tree) + 1);
+    printf("%d\n", get_height(avl_tree) + 1);
+    puts("What order do you want?");
+    char answer[10];
+    gets(answer);
+    orders(answer, avl_tree);
+    del_tree(avl_tree);
 
     return 0;
 }

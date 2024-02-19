@@ -98,7 +98,7 @@ TREE * insert(TREE * T, int number){  //inserting element in the tree
             T->left = create(number);
         else
             insert(T -> left, number);
-        }
+    }
     else if (number >= T -> num) {
         if (T -> right == NULL)
             T->right = create(number);
@@ -109,5 +109,39 @@ TREE * insert(TREE * T, int number){  //inserting element in the tree
     return balance(T);
 }
 
+void del_tree(TREE * T){
+    if (T != NULL){
+        del_tree(T->right);
+        del_tree(T->left);
+        free(T);
+    }
+}
+
+
+void pre_order(TREE *T) {
+    printf("%d\n",T -> num);
+
+    if (T -> left != NULL)
+        pre_order(T -> left);
+    if (T -> right != NULL)
+        pre_order(T -> right);
+}
+
+void post_order(TREE * T){
+    if (T -> left)
+        post_order(T -> left);
+    if (T -> right)
+        post_order(T -> right);
+    printf("%d\n", T -> num);
+}
+
+
+void in_order(TREE * T){
+    if (T -> left)
+        in_order(T -> left);
+    printf("%d\n", T -> num);
+    if (T -> right)
+        in_order(T -> right);
+}
 
 #endif
