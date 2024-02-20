@@ -31,7 +31,7 @@ int main(){
     printf("%d\n", get_height(avl_tree) + 1);
     puts("What order do you want?");
     char answer[10];
-    gets(answer);
+    scanf("%s", &answer);
     orders(answer, avl_tree);
     del_tree(avl_tree);
 
