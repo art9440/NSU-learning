@@ -22,6 +22,7 @@ int max(int num1, int num2){
     return num2;
 }
 
+
 int treeHeight(TREE *T){
     if (T == NULL)
         return 0;
@@ -117,7 +118,7 @@ void in_order(TREE * T){
 }
 
 
-void search_elem(TREE * T, int val){
+void search_elem(TREE * T, int val){ //searching of the elem. in the tree
     if (T == NULL) {
         puts("False");
         return;
