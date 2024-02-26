@@ -116,4 +116,19 @@ void in_order(TREE * T){
         in_order(T -> right);
 }
 
+
+void search_elem(TREE * T, int val){
+    if (T == NULL) {
+        puts("False");
+        return;
+    }
+    else if (T->num == val)
+        puts("True");
+    else if (T->num < val)
+        search_elem(T->right, val);
+    else if (T->num > val)
+        search_elem(T->left, val);
+}
+
+
 #endif
