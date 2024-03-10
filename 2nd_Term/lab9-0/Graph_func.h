@@ -12,11 +12,13 @@ GRAPH{
     int edge_count;
 };
 
+
 DEIKSTRA{
     int * marked;
     int minway;
     int * way;
 };
+
 
 GRAPH* Creating_graph(int start, int finish, int node_count, int edge_count){
     GRAPH * graph;
@@ -40,6 +42,23 @@ void add_graph(int st_edge, int fn_edge, int weight_edge, GRAPH * graph,
 
 
 void Deikstra_alg(GRAPH * graph){
+
+    DEIKSTRA * work;
+    work = (DEIKSTRA*) malloc(sizeof(DEIKSTRA));
+
+    int * marked = (int*)malloc(graph->node_count * sizeof(unsigned int));
+    for (int i = 0; i < graph->node_count - 1; i++){
+        if (i == graph->start)
+            marked[i] = 0;
+        else
+            marked[i] = INT_MAX;
+    }
+    work -> marked = marked;
+
+    work -> minway = 10000;
+
+    int * way = (int*)malloc(sizeof(unsigned int));
+    work -> way = way;
 
 }
 
