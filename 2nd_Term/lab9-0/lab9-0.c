@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <malloc.h>
+#include "Graph_func.h"
 
 
 int Check_for_errors(int node_count, int edge_count, int start, int finish){
@@ -41,6 +42,8 @@ int main(){
     if (Check_for_errors(node_count, edge_count, start, finish) == 0)
         return 0;
 
+    GRAPH * graph = Creating_graph(start, finish, node_count, edge_count);
+
     for (int i = 0; i < edge_count; i++){
         int st_edge, fn_edge, weight_edge;
 
@@ -57,7 +60,11 @@ int main(){
             puts("bad vertex");
             return 0;
         }
+
+        add_graph(st_edge, fn_edge, weight_edge, graph, node_count);
     }
+
+    Deikstra_alg(graph);
 
 
     fclose(file);
