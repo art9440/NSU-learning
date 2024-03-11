@@ -24,33 +24,25 @@ int Check_for_errors(int node_count, int edge_count, int start, int finish){
 
 
 int main(){
-    FILE *file = fopen("in.txt", "r");
     int node_count, start, finish, edge_count;
-    if(!fscanf(file, "%d", &node_count)){
-        fclose(file);
-        return 0;
-    }
-    if(fscanf(file, "%d %d", &start,&finish)!=2){
-        fclose(file);
-        return 0;
-    }
-    if(!fscanf(file, "%d", &edge_count)){
-        fclose(file);
-        return 0;
-    }
+    GRAPH *graph;
+    scanf( "%d", &node_count);
+
+    scanf( "%d %d", &start,&finish);
+
+    scanf( "%d", &edge_count);
+
 
     if (Check_for_errors(node_count, edge_count, start, finish) == 0)
         return 0;
 
-    GRAPH * graph = Creating_graph(start, finish, node_count, edge_count);
+    Create_graph(graph, start, finish, node_count);     //creating graph with adjacency_list
+
 
     for (int i = 0; i < edge_count; i++){
         int st_edge, fn_edge, weight_edge;
 
-        if(fscanf(file, "%d %d %d", &st_edge,&fn_edge, &weight_edge)!=3){
-            fclose(file);
-            return 0;
-        }
+        scanf( "%d %d %d", &st_edge,&fn_edge, &weight_edge);
 
         if (weight_edge < 0 || weight_edge > INT_MAX) {
             puts("bad length");
@@ -61,12 +53,11 @@ int main(){
             return 0;
         }
 
-        add_graph(st_edge, fn_edge, weight_edge, graph, node_count);
+        Add_graph(graph, st_edge, fn_edge, weight_edge);
+
     }
 
-    Deikstra_alg(graph);
+   Djeikstra(graph);
 
-
-    fclose(file);
     return 0;
 }

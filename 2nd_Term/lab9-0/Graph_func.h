@@ -1,65 +1,73 @@
 #ifndef NSU_LEARNING_GRAPH_FUNC_H
 #define NSU_LEARNING_GRAPH_FUNC_H
 
+#define NODE struct node
 #define GRAPH struct graph
-#define DEIKSTRA struct deikstra
+#define SHORTEST_PATH struct shortest_path
+
+
+NODE{
+    int vertex;
+    long long weight;
+    NODE * next;
+};
+
 
 GRAPH{
-    int* arr;
+    int vertex;
     int start;
     int finish;
-    int node_count;
-    int edge_count;
+    NODE ** adj_list;
 };
 
 
-DEIKSTRA{
-    int * marked;
-    int minway;
-    int * way;
+SHORTEST_PATH{
+    long long int * ways;
+    int * processed;
+    int * progenitors;
 };
 
 
-GRAPH* Creating_graph(int start, int finish, int node_count, int edge_count){
-    GRAPH * graph;
-    graph = (GRAPH*)malloc(sizeof(GRAPH));
+void Create_graph(GRAPH * graph, int start, int finish, int node_count){
+    graph = (GRAPH*) malloc(sizeof(GRAPH));
+    graph -> vertex = node_count;
     graph -> start = start;
     graph -> finish = finish;
-    int * arr = (int*) malloc(node_count * node_count * sizeof(unsigned int));
-    graph -> arr = arr;
-    graph -> node_count = node_count;
-    graph -> edge_count = edge_count;
-
-    return graph;
+    graph -> adj_list = (NODE**) malloc(node_count * sizeof(NODE*));
+    for (int i = 0;i < node_count; i++)
+        graph -> adj_list[i] = NULL;
 }
 
 
-void add_graph(int st_edge, int fn_edge, int weight_edge, GRAPH * graph,
-               int node_count){
-    graph -> arr[(st_edge - 1) * node_count + (fn_edge - 1)] = weight_edge;
-    graph -> arr[(fn_edge - 1) * node_count + (st_edge - 1)] = weight_edge;
+void Add_graph(GRAPH * graph, int st_edge, int fn_edge, int weight_edge){
+    NODE * node = (NODE*)malloc(sizeof(NODE));
+    node -> vertex = fn_edge;
+    node -> weight = weight_edge;
+    node -> next = graph -> adj_list[st_edge - 1];
+    graph -> adj_list[st_edge - 1] = node;
 }
 
 
-void Deikstra_alg(GRAPH * graph){
+void Djeikstra(GRAPH * graph){
+    int vertex = graph -> vertex;
+    int start = graph -> start;
+    int finish = graph -> finish;
 
-    DEIKSTRA * work;
-    work = (DEIKSTRA*) malloc(sizeof(DEIKSTRA));
 
-    int * marked = (int*)malloc(graph->node_count * sizeof(unsigned int));
-    for (int i = 0; i < graph->node_count - 1; i++){
-        if (i == graph->start)
-            marked[i] = 0;
-        else
-            marked[i] = INT_MAX;
+    SHORTEST_PATH* path = (SHORTEST_PATH*)malloc(vertex *sizeof(SHORTEST_PATH));
+
+    for (int i = 0; i < vertex; i++) {
+        path->ways[i] = LLONG_MAX;
+        path->processed[i] = 0;
+        path->progenitors[i] = -1;
     }
-    work -> marked = marked;
 
-    work -> minway = 10000;
-
-    int * way = (int*)malloc(sizeof(unsigned int));
-    work -> way = way;
+    path->ways[start - 1] = 0;
 
 }
+
+
+
+
 
 #endif
