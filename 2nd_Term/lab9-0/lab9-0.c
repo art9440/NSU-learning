@@ -54,8 +54,8 @@ int main(){
             return 0;
         }
 
-        Add_graph(graph, st_edge, fn_edge, weight_edge);
-        count++;
+        Add_graph(graph, st_edge, fn_edge, weight_edge); //adding edge
+        ++count;                                                //into graph
 
     }
 

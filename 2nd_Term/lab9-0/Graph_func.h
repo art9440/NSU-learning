@@ -63,7 +63,7 @@ void Add_graph(GRAPH* graph, int st_edge, int fn_edge, long long int weight)
 }
 
 
-int minDistance(NODE* priority, SHORTEST_PATH* path)
+int minDistance(NODE* priority, SHORTEST_PATH* path) //counting min distance to vertex
 {
     if (!priority)
         return -1;
@@ -167,10 +167,10 @@ void Djeikstra(GRAPH* graph, int start, int finish){
     for (int i = 0; i < way_len; i++)
     {
         if (way[i] == start || way[i] == finish)
-            check1++;
+            ++check1;
         if (path[i + 1].ways >= INT_MAX &&
             path[i + 1].ways != LLONG_MAX)
-            check2++;
+            ++check2;
     }
 
     if (check1 != 2 && start != finish)
