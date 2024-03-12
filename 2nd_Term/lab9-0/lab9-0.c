@@ -10,11 +10,11 @@ int Check_for_errors(int node_count, int edge_count, int start, int finish){
     }
 
     if (edge_count < 0 || edge_count > node_count * (node_count + 1)/2) {
-        puts("bad number of edge");
+        puts("bad number of edges");
         return 0;
     }
 
-    if (start < 0 || start > node_count || finish < 0 || finish > node_count){
+    if (start < 1 || start > node_count || finish < 1 || finish > node_count){
         puts("bad vertex");
         return 0;
     }
@@ -36,12 +36,12 @@ int main(){
     if (Check_for_errors(node_count, edge_count, start, finish) == 0)
         return 0;
 
-    GRAPH *graph = Create_graph(start, finish, node_count);     //creating graph with adjacency_list
+    GRAPH *graph = Create_graph(node_count);     //creating graph with adjacency_list
 
     int count = 0;
     for (int i = 0; i < edge_count; i++){
         int st_edge, fn_edge;
-        long long weight_edge;
+        long long int weight_edge;
 
         scanf( "%d %d %lld", &st_edge,&fn_edge, &weight_edge);
 
@@ -64,7 +64,7 @@ int main(){
         return 0;
     }
 
-   Djeikstra(graph);
+    Djeikstra(graph, start, finish);
 
     return 0;
 }
