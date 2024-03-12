@@ -33,9 +33,9 @@ GRAPH* Create_graph(int vert)
 {
     GRAPH* graph = (GRAPH*)malloc(sizeof(GRAPH));
     graph -> vertex = vert;
-    graph->adj_list = (NODE**)malloc(vert * sizeof(NODE*));
+    graph -> adj_list = (NODE**)malloc(vert * sizeof(NODE*));
     for (int i = 0; i < vert; i++)
-        graph->adj_list[i] = NULL;
+        graph -> adj_list[i] = NULL;
 
     return graph;
 }
@@ -44,9 +44,9 @@ GRAPH* Create_graph(int vert)
 NODE* Create_node(int vertex, long long weight)
 {
     NODE* node = (NODE*)malloc(sizeof(NODE));
-    node->vertex = vertex;
-    node->weight = weight;
-    node->next = NULL;
+    node -> vertex = vertex;
+    node -> weight = weight;
+    node -> next = NULL;
     return node;
 }
 
@@ -86,10 +86,11 @@ int minDistance(NODE* priority, SHORTEST_PATH* path)
     return min_vertex;
 }
 
-//void freeMemory()
 
 void Djeikstra(GRAPH* graph, int start, int finish){
-    SHORTEST_PATH* path = (SHORTEST_PATH*)malloc(graph -> vertex *sizeof(SHORTEST_PATH));
+    SHORTEST_PATH* path = (SHORTEST_PATH*)malloc(graph
+            -> vertex *sizeof(SHORTEST_PATH));
+
     for (int i = 0; i < graph -> vertex; i++)
     {
         path[i].ways = LLONG_MAX;
@@ -119,8 +120,9 @@ void Djeikstra(GRAPH* graph, int start, int finish){
 
         while (interim != NULL)
         {
-            int adj_vertex = interim->vertex - 1;
-            long long int alter_vertex = path[min_edge].ways + interim -> weight;
+            int adj_vertex = interim -> vertex - 1;
+            long long int alter_vertex = path[min_edge].ways +
+                    interim -> weight;
 
             if (alter_vertex <= path[adj_vertex].ways)
             {
