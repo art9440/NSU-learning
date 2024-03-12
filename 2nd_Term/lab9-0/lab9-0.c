@@ -38,7 +38,7 @@ int main(){
 
     Create_graph(graph, start, finish, node_count);     //creating graph with adjacency_list
 
-
+    int count = 0;
     for (int i = 0; i < edge_count; i++){
         int st_edge, fn_edge, weight_edge;
 
@@ -54,7 +54,13 @@ int main(){
         }
 
         Add_graph(graph, st_edge, fn_edge, weight_edge);
+        count++;
 
+    }
+
+    if (count < edge_count){
+        puts("bad number of lines");
+        return 0;
     }
 
    Djeikstra(graph);
