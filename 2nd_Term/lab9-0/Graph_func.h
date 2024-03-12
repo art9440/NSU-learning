@@ -17,6 +17,8 @@ NODE
 GRAPH
 {
     int vertex;
+    int start;
+    int finish;
     NODE** adj_list;
 };
 
@@ -29,11 +31,12 @@ SHORTEST_PATH
 };
 
 
-GRAPH* Create_graph(int vert)
-{
+GRAPH* Create_graph(int vert, int start, int finish){
     GRAPH* graph = (GRAPH*)malloc(sizeof(GRAPH));
     graph -> vertex = vert;
     graph -> adj_list = (NODE**)malloc(vert * sizeof(NODE*));
+    graph -> start = start;
+    graph -> finish = finish;
     for (int i = 0; i < vert; i++)
         graph -> adj_list[i] = NULL;
 
@@ -41,8 +44,7 @@ GRAPH* Create_graph(int vert)
 }
 
 
-NODE* Create_node(int vertex, long long weight)
-{
+NODE* Create_node(int vertex, long long weight){
     NODE* node = (NODE*)malloc(sizeof(NODE));
     node -> vertex = vertex;
     node -> weight = weight;
@@ -51,8 +53,7 @@ NODE* Create_node(int vertex, long long weight)
 }
 
 
-void Add_graph(GRAPH* graph, int st_edge, int fn_edge, long long int weight)
-{
+void Add_graph(GRAPH* graph, int st_edge, int fn_edge, long long int weight){
     NODE* node = Create_node(fn_edge, weight);
     node -> next = graph -> adj_list[st_edge - 1];
     graph -> adj_list[st_edge - 1] = node;
@@ -63,8 +64,7 @@ void Add_graph(GRAPH* graph, int st_edge, int fn_edge, long long int weight)
 }
 
 
-int minDistance(NODE* priority, SHORTEST_PATH* path) //counting min distance to vertex
-{
+int minDistance(NODE* priority, SHORTEST_PATH* path){ //counting min distance to vertex
     if (!priority)
         return -1;
 
@@ -87,7 +87,13 @@ int minDistance(NODE* priority, SHORTEST_PATH* path) //counting min distance to 
 }
 
 
-void Djeikstra(GRAPH* graph, int start, int finish){
+void Djeikstra(GRAPH* graph){
+    int start = graph -> start, finish = graph -> finish,
+     way[graph -> vertex], way_len = 0, cur = finish - 1;
+    NODE* priority = NULL;
+    int check1 = 0;
+    int check2 = 0;
+
     SHORTEST_PATH* path = (SHORTEST_PATH*)malloc(graph
             -> vertex *sizeof(SHORTEST_PATH));
 
@@ -99,7 +105,6 @@ void Djeikstra(GRAPH* graph, int start, int finish){
     }
 
     path[start - 1].ways = 0;
-    NODE* priority = NULL;
 
     NODE* nw_Node = (NODE*)malloc(sizeof(NODE));
     nw_Node -> vertex = start - 1;
@@ -139,10 +144,8 @@ void Djeikstra(GRAPH* graph, int start, int finish){
         }
     }
 
-    int way[graph -> vertex];
-    int way_len = 0;
 
-    int cur = finish - 1;
+
     while (cur != -1)
     {
         way[way_len++] = cur + 1;
@@ -161,10 +164,8 @@ void Djeikstra(GRAPH* graph, int start, int finish){
     }
     printf("\n");
 
-    int check1 = 0;
-    int check2 = 0;
 
-    for (int i = 0; i < way_len; i++)
+    for (int i = 0; i < way_len; i++)      //checking for errors
     {
         if (way[i] == start || way[i] == finish)
             ++check1;
