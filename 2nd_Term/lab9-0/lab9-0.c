@@ -25,10 +25,10 @@ int Check_for_errors(int node_count, int edge_count, int start, int finish){
 
 int main(){
     int node_count, start, finish, edge_count;
-    GRAPH *graph;
+
     scanf( "%d", &node_count);
 
-    scanf( "%d %d", &start,&finish);
+    scanf( "%d %d", &start, &finish);
 
     scanf( "%d", &edge_count);
 
@@ -36,13 +36,14 @@ int main(){
     if (Check_for_errors(node_count, edge_count, start, finish) == 0)
         return 0;
 
-    Create_graph(graph, start, finish, node_count);     //creating graph with adjacency_list
+    GRAPH *graph = Create_graph(start, finish, node_count);     //creating graph with adjacency_list
 
     int count = 0;
     for (int i = 0; i < edge_count; i++){
-        int st_edge, fn_edge, weight_edge;
+        int st_edge, fn_edge;
+        long long weight_edge;
 
-        scanf( "%d %d %d", &st_edge,&fn_edge, &weight_edge);
+        scanf( "%d %d %lld", &st_edge,&fn_edge, &weight_edge);
 
         if (weight_edge < 0 || weight_edge > INT_MAX) {
             puts("bad length");

@@ -8,7 +8,7 @@
 
 NODE{
     int vertex;
-    long long weight;
+    long long int weight;
     NODE * next;
 };
 
@@ -28,23 +28,37 @@ SHORTEST_PATH{
 };
 
 
-void Create_graph(GRAPH * graph, int start, int finish, int node_count){
-    graph = (GRAPH*) malloc(sizeof(GRAPH));
+GRAPH * Create_graph( int start, int finish, int node_count){
+    GRAPH * graph = (GRAPH*) malloc(sizeof(GRAPH));
     graph -> vertex = node_count;
     graph -> start = start;
     graph -> finish = finish;
     graph -> adj_list = (NODE**) malloc(node_count * sizeof(NODE*));
+
     for (int i = 0;i < node_count; i++)
         graph -> adj_list[i] = NULL;
+
+    return graph;
 }
 
 
-void Add_graph(GRAPH * graph, int st_edge, int fn_edge, int weight_edge){
-    NODE * node = (NODE*)malloc(sizeof(NODE));
-    node -> vertex = fn_edge;
-    node -> weight = weight_edge;
+NODE * Create_node(int vertex, long long int weight){
+    NODE * node = (NODE*) malloc(sizeof(NODE));
+    node -> vertex = vertex;
+    node -> weight = weight;
+    node -> next = NULL;
+    return node;
+}
+
+
+void Add_graph(GRAPH * graph, int st_edge, int fn_edge,
+               long long int weight_edge){
+    NODE * node = Create_node(fn_edge, weight_edge);
     node -> next = graph -> adj_list[st_edge - 1];
     graph -> adj_list[st_edge - 1] = node;
+    node = Create_node(st_edge, weight_edge);
+    node -> next = graph -> adj_list[fn_edge - 1];
+    graph -> adj_list[fn_edge - 1] = node;
 }
 
 
@@ -52,7 +66,7 @@ int minDistance(NODE * priority, SHORTEST_PATH * path){
     if (!priority)
         return -1;
 
-    long long min_way = LLONG_MAX;
+    long long int min_way = LLONG_MAX;
     int min_vertex = -1;
     NODE * cur = priority;
 
@@ -93,7 +107,7 @@ void Djeikstra(GRAPH * graph){
     nw_Node->next = NULL;
     priority = nw_Node;
 
-    while (priority){
+    while (priority != NULL){
         int min_edge = minDistance(priority, path);
         if (min_edge == -1)
             break;
@@ -101,7 +115,8 @@ void Djeikstra(GRAPH * graph){
         path -> processed[min_edge] = 1;
 
         NODE * interim = graph -> adj_list[min_edge];
-        while (interim){
+
+        while (interim != NULL){
             int adj_vert = interim -> vertex - 1;
             long long alter_vertex = path -> ways[min_edge] + interim -> weight;
 
