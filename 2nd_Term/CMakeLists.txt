@@ -9,3 +9,8 @@ add_executable(NSU_learning
 )
 add_executable(lab9 lab9-0/lab9-0.c
         lab9-0/Graph_func.h)
+
+add_executable(lab8 lab8-0
+        lab8-0/Kruskal.c
+        lab8-0/Graph.h
+)

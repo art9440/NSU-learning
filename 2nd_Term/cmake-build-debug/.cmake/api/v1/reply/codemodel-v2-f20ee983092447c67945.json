@@ -16,7 +16,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -32,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -43,6 +45,13 @@
 					"id" : "NSU_learning::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-NSU_learning-Debug-6cb8fec2be7bd84bcdc5.json",
 					"name" : "NSU_learning",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab8::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab8-Debug-14f9ed126f0da099c19c.json",
+					"name" : "lab8",
 					"projectIndex" : 0
 				},
 				{
