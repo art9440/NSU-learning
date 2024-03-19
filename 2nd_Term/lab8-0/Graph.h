@@ -21,8 +21,7 @@ SET{
 
 GRAPH * Create_graph(GRAPH * graph, int node_count, int edge_count){
     graph = malloc( sizeof(GRAPH));
-    if (graph == NULL)
-        return NULL;
+
     graph -> node_count = node_count;
     graph -> edge_count = edge_count;
     graph -> edges =  malloc(3 * edge_count * sizeof(int));
