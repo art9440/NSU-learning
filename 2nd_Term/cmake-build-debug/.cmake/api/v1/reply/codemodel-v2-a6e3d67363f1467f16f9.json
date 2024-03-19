@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "NSU_learning",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "NSU_learning::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NSU_learning-Debug-6cb8fec2be7bd84bcdc5.json",
+					"name" : "NSU_learning",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab8::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab8-Debug-568c24b23252673ef66e.json",
+					"name" : "lab8",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab9::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab9-Debug-9691383dbbd541ed3f1a.json",
+					"name" : "lab9",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug",
+		"source" : "C:/Users/user/CLionProjects/NSU-learning/2nd_Term"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
