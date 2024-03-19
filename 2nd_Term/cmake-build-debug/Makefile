@@ -154,6 +154,19 @@ lab8/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/build
 .PHONY : lab8/fast
 
+#=============================================================================
+# Target rules for targets named lab8-1
+
+# Build rule for target.
+lab8-1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lab8-1
+.PHONY : lab8-1
+
+# fast build rule for target.
+lab8-1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/build
+.PHONY : lab8-1/fast
+
 AVL_tree/AVL_tree.obj: AVL_tree/AVL_tree.c.obj
 .PHONY : AVL_tree/AVL_tree.obj
 
@@ -178,29 +191,56 @@ AVL_tree/AVL_tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NSU_learning.dir\build.make CMakeFiles/NSU_learning.dir/AVL_tree/AVL_tree.c.s
 .PHONY : AVL_tree/AVL_tree.c.s
 
-lab8-0/Kraskal.obj: lab8-0/Kraskal.c.obj
-.PHONY : lab8-0/Kraskal.obj
+lab8-0/Kruskal.obj: lab8-0/Kruskal.c.obj
+.PHONY : lab8-0/Kruskal.obj
 
 # target to build an object file
-lab8-0/Kraskal.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kraskal.c.obj
-.PHONY : lab8-0/Kraskal.c.obj
+lab8-0/Kruskal.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj
+.PHONY : lab8-0/Kruskal.c.obj
 
-lab8-0/Kraskal.i: lab8-0/Kraskal.c.i
-.PHONY : lab8-0/Kraskal.i
+lab8-0/Kruskal.i: lab8-0/Kruskal.c.i
+.PHONY : lab8-0/Kruskal.i
 
 # target to preprocess a source file
-lab8-0/Kraskal.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kraskal.c.i
-.PHONY : lab8-0/Kraskal.c.i
+lab8-0/Kruskal.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kruskal.c.i
+.PHONY : lab8-0/Kruskal.c.i
 
-lab8-0/Kraskal.s: lab8-0/Kraskal.c.s
-.PHONY : lab8-0/Kraskal.s
+lab8-0/Kruskal.s: lab8-0/Kruskal.c.s
+.PHONY : lab8-0/Kruskal.s
 
 # target to generate assembly for a file
-lab8-0/Kraskal.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kraskal.c.s
-.PHONY : lab8-0/Kraskal.c.s
+lab8-0/Kruskal.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kruskal.c.s
+.PHONY : lab8-0/Kruskal.c.s
+
+lab8-1/Prim.obj: lab8-1/Prim.c.obj
+.PHONY : lab8-1/Prim.obj
+
+# target to build an object file
+lab8-1/Prim.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-1/Prim.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim.c.obj
+.PHONY : lab8-1/Prim.c.obj
+
+lab8-1/Prim.i: lab8-1/Prim.c.i
+.PHONY : lab8-1/Prim.i
+
+# target to preprocess a source file
+lab8-1/Prim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-1/Prim.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim.c.i
+.PHONY : lab8-1/Prim.c.i
+
+lab8-1/Prim.s: lab8-1/Prim.c.s
+.PHONY : lab8-1/Prim.s
+
+# target to generate assembly for a file
+lab8-1/Prim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-1/Prim.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim.c.s
+.PHONY : lab8-1/Prim.c.s
 
 lab9-0/lab9-0.obj: lab9-0/lab9-0.c.obj
 .PHONY : lab9-0/lab9-0.obj
@@ -236,13 +276,17 @@ help:
 	@echo ... rebuild_cache
 	@echo ... NSU_learning
 	@echo ... lab8
+	@echo ... lab8-1
 	@echo ... lab9
 	@echo ... AVL_tree/AVL_tree.obj
 	@echo ... AVL_tree/AVL_tree.i
 	@echo ... AVL_tree/AVL_tree.s
-	@echo ... lab8-0/Kraskal.obj
-	@echo ... lab8-0/Kraskal.i
-	@echo ... lab8-0/Kraskal.s
+	@echo ... lab8-0/Kruskal.obj
+	@echo ... lab8-0/Kruskal.i
+	@echo ... lab8-0/Kruskal.s
+	@echo ... lab8-1/Prim.obj
+	@echo ... lab8-1/Prim.i
+	@echo ... lab8-1/Prim.s
 	@echo ... lab9-0/lab9-0.obj
 	@echo ... lab9-0/lab9-0.i
 	@echo ... lab9-0/lab9-0.s

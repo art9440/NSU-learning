@@ -13,4 +13,9 @@ add_executable(lab9 lab9-0/lab9-0.c
 add_executable(lab8 lab8-0
         lab8-0/Kruskal.c
         lab8-0/Graph.h
+        lab8-1/Prim.c
+        lab8-1/Prim_func.h
+
 )
+add_executable(lab8-1 lab8-1/Prim.c
+        lab8-1/Prim_func.h)
