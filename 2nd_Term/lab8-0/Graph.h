@@ -15,7 +15,7 @@ GRAPH{
 SET{
     int * parents;
     int * rank;
-    int * node;
+    int * visited;
 };
 
 
@@ -47,11 +47,11 @@ SET * Create_set(SET * set, int node_count){
     set = malloc( sizeof(SET));
     set -> parents =  malloc(node_count * sizeof(int));
     set -> rank =  malloc(node_count * sizeof(int));
-    set -> node =  malloc(node_count * sizeof(int));
+    set -> visited =  malloc(node_count * sizeof(int));
 
     for (int i = 0; i < node_count; i++){
         set -> rank[i] = 0;
-        set -> node[i] = 0;
+        set -> visited[i] = 0;
         set -> parents[i] = i;
     }
     return set;
@@ -75,7 +75,7 @@ int find_parent(int * parents, int i){
 
 void free_set(SET * set){
     free(set -> parents);
-    free(set -> node);
+    free(set -> visited);
     free(set -> rank);
     free(set);
 }
@@ -99,8 +99,8 @@ void Kruskal(GRAPH * graph){
         int fromSet = find_parent(set -> parents, start - 1);
         int toSet = find_parent(set -> parents, finish - 1);
         if (fromSet != toSet){
-            set -> node[start - 1] = 1;
-            set -> node[finish - 1] = 1;
+            set -> visited[start - 1] = 1;
+            set -> visited[finish - 1] = 1;
             if (set -> rank[fromSet] < set -> rank[toSet]){
                 int tmp = fromSet;
                 fromSet = toSet;
@@ -114,7 +114,7 @@ void Kruskal(GRAPH * graph){
             graph -> edges[3 * i + 2] = -1;
     }
     for(int i = 0; i < node_count; i++){
-        if (!set -> node[i]){
+        if (!set -> visited[i]){
             puts("no spanning tree");
             free_set(set);
             return;
