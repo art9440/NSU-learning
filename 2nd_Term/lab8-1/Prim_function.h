@@ -12,7 +12,7 @@ GRAPH{
     unsigned int * keys;
 };
 
-GRAPH * Create_graph(GRAPH * graph, int node_count, int edge_count);
+GRAPH * Create_graph(GRAPH * graph, int node_count);
 void add_edge(int start, int finish, int weight, GRAPH * graph);
 int min_key(GRAPH * graph);
 void print_Prim(GRAPH * graph);

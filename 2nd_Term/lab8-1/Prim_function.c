@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-GRAPH * Create_graph(GRAPH * graph, int node_count, int edge_count){
+GRAPH * Create_graph(GRAPH * graph, int node_count){
     graph = (GRAPH*) malloc(sizeof(GRAPH));
     graph -> node_count = node_count;
     graph -> adj_matrix = (int *)malloc(node_count * node_count * sizeof(int));
@@ -69,7 +69,7 @@ void Prim_alg(GRAPH * graph){
         for (int j = 0; j < node_count; j++)
             if (graph -> adj_matrix[visit * node_count + j]
                 && graph -> visited[j] == 0 &&
-                graph -> adj_matrix[visit * node_count + j] < graph -> keys[j]) {
+                graph -> adj_matrix[visit * node_count + j] < graph->keys[j]){
                 graph->parents[j] = visit;
                 graph->keys[j] = graph->adj_matrix[visit * node_count + j];
             }
