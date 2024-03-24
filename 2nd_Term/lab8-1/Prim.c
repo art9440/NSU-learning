@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <malloc.h>
 #include <stdlib.h>
-#include "Prim_func.h"
+#include "Prim_function.h"
 
 int Check_for_errors(int node_count, int edge_count){
     if (node_count > 5000 || node_count < 0) {
