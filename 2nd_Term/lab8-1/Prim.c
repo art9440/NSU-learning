@@ -45,7 +45,7 @@ int main(){
         return 0;
 
     graph = Create_graph(graph, node_count, edge_count);
-    int start_node;
+
     int count = 0;
     for (int i = 0; i < edge_count; i++) {
         int st_edge, fn_edge;
@@ -57,7 +57,6 @@ int main(){
             fclose(file);
             return 0;
         }
-        start_node = st_edge;
 
         if (weight_edge < 0 || weight_edge > INT_MAX) {
             puts("bad length");
@@ -69,11 +68,12 @@ int main(){
             puts("bad vertex");
             return 0;
         }
-        add_edge(st_edge, fn_edge, weight_edge, graph);
+        add_edge(st_edge - 1, fn_edge - 1, weight_edge, graph);
 
         ++count;
     }
-    Prim_alg(graph, start_node);
+
+    Prim_alg(graph);
 
     if (count < edge_count){
         puts("bad number of lines");
