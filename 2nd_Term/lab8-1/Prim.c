@@ -43,7 +43,7 @@ int main(){
     if (Check_for_errors(node_count, edge_count) == 0)
         return 0;
 
-    graph = Create_graph(graph, node_count, edge_count);
+    graph = Create_graph(graph, node_count);
 
     int count = 0;
     for (int i = 0; i < edge_count; i++) {
