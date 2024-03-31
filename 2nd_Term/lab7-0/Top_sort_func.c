@@ -40,7 +40,7 @@ void dfs(GRAPH* graph, int cur, int* visited, STACK * stack) {
     }
 
     if (stack != NULL)
-        push_stack(stack, cur);
+        push_stack(stack, cur + 1);
 
 }
 
@@ -48,7 +48,7 @@ void dfs(GRAPH* graph, int cur, int* visited, STACK * stack) {
 void Top_Sort(GRAPH * graph){
     int node_count = graph -> node_count;
     int * visited;
-    STACK * stack = NULL;
+    STACK * stack = (STACK *) malloc(sizeof(STACK));
     visited = calloc(node_count, sizeof(int));
     Create_stack(stack, node_count);
 
