@@ -66,5 +66,7 @@ int main(){
 
     Top_Sort(graph);
 
+    fclose(file);
+
     return 0;
 }
