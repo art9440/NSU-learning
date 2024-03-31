@@ -65,7 +65,7 @@ void Top_Sort(GRAPH * graph){
 
 
     free(visited);
-
+    free(stack);
 
 }
 
