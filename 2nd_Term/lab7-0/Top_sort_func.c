@@ -39,8 +39,7 @@ void dfs(GRAPH* graph, int cur, int* visited, STACK * stack) {
         }
     }
 
-    if (stack != NULL)
-        push_stack(stack, cur + 1);
+    push_stack(stack, cur + 1);
 
 }
 
