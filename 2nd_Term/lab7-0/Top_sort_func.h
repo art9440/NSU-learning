@@ -20,6 +20,6 @@ GRAPH * Create_graph(GRAPH * graph, int node_count);
 void add_edge(GRAPH * graph, int st_edge, int fn_edge);
 void Top_Sort(GRAPH * graph);
 void dfs(GRAPH * graph, int cur, int * visited, STACK * stack);
-STACK * Create_stack(STACK * stack, int node_count);
+void Create_stack(STACK * stack, int node_count);
 void push_stack(STACK * stack, int cur);
 #endif

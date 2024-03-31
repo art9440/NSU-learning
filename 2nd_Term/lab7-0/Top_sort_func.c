@@ -16,8 +16,8 @@ GRAPH * Create_graph(GRAPH * graph, int node_count){
 }
 
 
-STACK * Create_stack(STACK * stack, int node_count){
-    stack -> data = (int *) malloc(node_count * sizeof(int));
+void Create_stack(STACK * stack, int node_count){
+    stack -> data = (int *)malloc(node_count * sizeof(int));
     stack -> top = -1;
 }
 
@@ -60,7 +60,7 @@ void Top_Sort(GRAPH * graph){
     }
 
     while (stack -> top != -1){
-        printf("%d ", stack-> data[stack->top]);
+        printf("%d ", stack->data[stack->top]);
         stack -> top --;
     }
 
