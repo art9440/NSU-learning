@@ -15,11 +15,10 @@ GRAPH * Create_graph(GRAPH * graph, int node_count){
     return graph;
 }
 
-STACK * Create_node_stack(int cur){
-    STACK * newNode = (STACK*) malloc(sizeof(STACK));
-    newNode -> vertex = cur;
-    newNode -> next = NULL;
-    return  newNode;
+
+STACK * Create_stack(STACK * stack, int node_count){
+    stack -> data = (int *) malloc(node_count * sizeof(int));
+    stack -> top = -1;
 }
 
 
@@ -28,17 +27,20 @@ void add_edge(GRAPH * graph, int st_edge, int fn_edge){
 }
 
 
-void dfs(GRAPH* graph, int cur, int* visited, STACK ** stack) {
+void push_stack(STACK * stack, int cur){
+    stack -> data[++stack-> top] = cur;
+}
+
+void dfs(GRAPH* graph, int cur, int* visited, STACK * stack) {
     visited[cur] = 1;
     for (int i = 0; i < graph->node_count; i++) {
         if (graph->adj_matrix[cur * graph->node_count + i] && !visited[i]) {
-            printf("*%d ", cur);
             dfs(graph, i, visited, stack);
         }
     }
-    STACK * newNode = Create_node_stack(cur);
-    newNode -> next = *stack;
-    *stack = newNode;
+
+    if (stack != NULL)
+        push_stack(stack, cur);
 
 }
 
@@ -48,20 +50,20 @@ void Top_Sort(GRAPH * graph){
     int * visited;
     STACK * stack = NULL;
     visited = calloc(node_count, sizeof(int));
+    Create_stack(stack, node_count);
 
 
     for (int i = 0; i < node_count; i++){
         if (!visited[i]) {
-            dfs(graph, i, visited, &stack);
+            dfs(graph, i, visited, stack);
         }
     }
 
-    while (stack != NULL) {
-        printf("%d ", stack->vertex);
-        STACK * temp = stack;
-        stack = stack->next;
-        free(temp);
+    while (stack -> top != -1){
+        printf("%d ", stack-> data[stack->top]);
+        stack -> top --;
     }
+
 
     free(visited);
 
