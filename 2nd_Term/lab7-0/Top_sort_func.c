@@ -33,17 +33,14 @@ void push_stack(STACK * stack, int cur){
 
 void dfs(GRAPH* graph, int cur, int* visited, STACK * stack, int* cycle_detect) {
     visited[cur] = 1;
-    for (int i = 0; i < graph->node_count; i++) {
+    for (int i = 0; i < graph->node_count; i++)
         if (graph->adj_matrix[cur * graph->node_count + i]) {
             if (visited[i] == 1) {
                 *cycle_detect = 1;
                 return;
-            }
-            else if (!visited[i]) {
+            } else if (!visited[i])
                 dfs(graph, i, visited, stack, cycle_detect);
-            }
         }
-    }
 
     push_stack(stack, cur + 1);
     visited[cur] = 2;
@@ -79,7 +76,8 @@ void Top_Sort(GRAPH * graph){
         printf("impossible to sort\n");
         free_all(visited, stack, graph);
         return;
-    } else {
+    }
+    else {
         while (stack -> top != -1){
             printf("%d ", stack->data[stack->top]);
             stack -> top --;
