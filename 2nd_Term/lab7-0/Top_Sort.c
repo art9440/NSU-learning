@@ -5,7 +5,7 @@
 
 
 int Check_for_errors(int node_count, int edge_count){
-    if (node_count > 5000 || node_count < 0) {
+    if (node_count > 2000 || node_count < 0) {
         puts("bad number of vertices");
         return 0;
     }
@@ -24,18 +24,17 @@ int main(){
     int node_count, edge_count;
     GRAPH * graph = NULL;
 
-    if(!fscanf(file,  "%d", &node_count)){
+    if(fscanf(file,  "%d %d", &node_count, &edge_count) != 2){
+        puts("bad number of lines");
         fclose(file);
         return 0;
     }
 
-    if(!fscanf(file,  "%d", &edge_count)){
+
+    if (Check_for_errors(node_count, edge_count) == 0) {
         fclose(file);
         return 0;
     }
-
-    if (Check_for_errors(node_count, edge_count) == 0)
-        return 0;
 
     graph = Create_graph(graph, node_count);
 

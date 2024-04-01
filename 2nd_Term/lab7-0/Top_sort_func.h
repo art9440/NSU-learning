@@ -2,16 +2,16 @@
 #define NSU_LEARNING_TOP_SORT_FUNC_H
 
 #define GRAPH struct graph
-#define STACK struct stack
+#define QUEUE struct queue
 
 GRAPH{
     int node_count;
-    int * adj_matrix;
+    char * adj_matrix;
 };
 
-STACK{
-    int * data;
-    int top;
+QUEUE{
+    int * qu;
+    int rear, front;
 };
 
 
@@ -19,7 +19,9 @@ STACK{
 GRAPH * Create_graph(GRAPH * graph, int node_count);
 void add_edge(GRAPH * graph, int st_edge, int fn_edge);
 void Top_Sort(GRAPH * graph);
-void dfs(GRAPH * graph, int cur, int * visited, STACK * stack);
-void Create_stack(STACK * stack, int node_count);
-void push_stack(STACK * stack, int cur);
+void Create_queue(QUEUE ** queue, int node_count);
+void Enqueue(QUEUE * queue, int cur);
+int isEmpty(QUEUE * queue);
+int Dequeue(QUEUE * queue);
+void free_all(GRAPH * graph, QUEUE * q);
 #endif
