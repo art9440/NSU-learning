@@ -66,11 +66,9 @@ void Top_Sort(GRAPH * graph){
 
     int cycle_detect = 0;
 
-    int count = 0;
     for (int i = 0; i < node_count; i++){
         if (!visited[i]) {
             dfs(graph, i, visited, stack, &cycle_detect);
-            count++;
             if (cycle_detect) {
                 break;
             }
