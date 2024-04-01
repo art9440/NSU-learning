@@ -31,15 +31,14 @@ int main(){
     }
 
 
-    if (Check_for_errors(node_count, edge_count) == 0) {
-        fclose(file);
+
+    if (Check_for_errors(node_count, edge_count) == 0)
         return 0;
-    }
 
     graph = Create_graph(graph, node_count);
 
     int count_err = 0;
-    for (int i =0 ; i < edge_count; i++){
+    for (int i = 0 ; i < edge_count; i++){
         int st_edge, fn_edge;
         if (fscanf(file, "%d %d", &st_edge, &fn_edge) != 2) {
             puts("bad number of lines");
