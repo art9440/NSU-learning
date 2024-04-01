@@ -20,4 +20,6 @@ add_executable(lab8-1 lab8-1/Prim.c
         lab8-1/Prim_function.c
         lab8-1/Prim_function.h
 )
-add_executable(lab7 lab7-0/Top_Sort.c)
+add_executable(lab7 lab7-0/Top_Sort.c
+        lab7-0/Top_sort_func.c
+        lab7-0/Top_sort_func.h)
