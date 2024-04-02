@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <malloc.h>
 #include "Top_sort_func.h"
 
 
@@ -40,6 +38,7 @@ int main(){
     int count_err = 0;
     for (int i = 0 ; i < edge_count; i++){
         int st_edge, fn_edge;
+
         if (fscanf(file, "%d %d", &st_edge, &fn_edge) != 2) {
             puts("bad number of lines");
             fclose(file);
