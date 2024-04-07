@@ -1,0 +1,29 @@
+#ifndef NSU_LEARNING_KOSARAJU_FUNC_H
+#define NSU_LEARNING_KOSARAJU_FUNC_H
+
+#define GRAPH struct graph
+#define STACK struct stack
+
+GRAPH{
+    int node_count;
+    int * adj_matrix;
+};
+
+STACK{
+int * data;
+int top;
+};
+
+
+GRAPH * Create_graph(GRAPH * graph, int node_count);
+void add_edge(GRAPH * graph, int st_edge, int fn_edge);
+void Kosaraju(GRAPH * graph);
+void Create_stack(STACK * stack, int node_count);
+void push_stack(STACK * stack, int cur);
+void dfs(GRAPH* graph, int cur, int* visited, STACK * stack);
+int pop_stack(STACK * stack);
+GRAPH * reverse(GRAPH * graph);
+void find_SCC(GRAPH * graph, STACK * stack, int * visited);
+void dfs_for_result(GRAPH * graph, int * visited, int * deleted, int cur);
+void free_all(GRAPH * graph, GRAPH * rev_graph, STACK * stack, int * arr);
+#endif
