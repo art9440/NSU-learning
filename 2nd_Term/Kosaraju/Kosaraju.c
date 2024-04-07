@@ -18,10 +18,17 @@ int Check_for_errors(int node_count, int edge_count){
 
 
 int main(){
+    FILE *file = fopen("in.txt", "r");
     int node_count, edge_count;
     GRAPH * graph = NULL;
 
-    scanf("%d %d", &node_count, &edge_count);
+    if(fscanf(file,  "%d %d", &node_count, &edge_count) != 2){
+        puts("bad number of lines");
+        fclose(file);
+        return 0;
+    }
+
+
 
     if (Check_for_errors(node_count, edge_count) == 0)
         return 0;
@@ -32,15 +39,19 @@ int main(){
     for (int i = 0 ; i < edge_count; i++){
         int st_edge, fn_edge;
 
-        scanf("%d %d", &st_edge, &fn_edge);
+        if (fscanf(file, "%d %d", &st_edge, &fn_edge) != 2) {
+            puts("bad number of lines");
+            fclose(file);
+            return 0;
+        }
 
         if (st_edge < 0 || st_edge > node_count || fn_edge < 0
             || fn_edge > node_count){
             puts("bad vertex");
             return 0;
         }
-
         add_edge(graph, st_edge, fn_edge);
+
         count_err++;
     }
 
@@ -52,6 +63,7 @@ int main(){
 
     Kosaraju(graph);
 
+    fclose(file);
 
     return 0;
 }
