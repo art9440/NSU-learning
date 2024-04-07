@@ -46,35 +46,47 @@ void dfs(GRAPH* graph, int cur, int* visited, STACK * stack) {
 }
 
 
-void dfs_for_result(GRAPH * graph, int * visited, int * deleted, int cur){
+void dfs_for_result(GRAPH * graph, int * visited, int cur, int colour){
     int node_count = graph -> node_count;
-    printf("%d", cur);
-    visited[cur] = 1;
-    deleted[cur] = 1;
+    visited[cur] = colour;
+    for (int i = 0; i < node_count; i++){
+        if (graph->adj_matrix[cur * node_count + i] && !visited[i])
+            dfs_for_result(graph, visited, i, colour);
+    }
+}
+
+
+int max(int * visited, int node_count){
+    int max = -INT_MAX;
     for (int i = 0; i < node_count; i++)
-        if (graph->adj_matrix[cur * node_count + i])
-            if (!visited[i] && !deleted[i])
-                dfs_for_result(graph, visited, deleted, i);
+        if (visited[i] > max)
+            max = visited[i];
+    return max;
+}
+
+
+void print_res(int * visited, int node_count){
+    int max_component = max(visited, node_count);
+    for (int i = 0; i < max_component + 1; i++){
+        printf("SCC № %d", i);
+        for (int j = 0; j < node_count; j++){
+            if (visited[j] == i)
+                printf("%d", j + 1);
+        }
+        puts("\n");
+    }
 }
 
 
 void find_SCC(GRAPH * graph, STACK * stack, int * visited){
-    int node_count = graph -> node_count;
-    int * deleted = calloc(node_count, sizeof(int));
-    int count = 1;
-    while (stack->top!= -1){
+    int colour = 0;
+    while (stack -> top != -1){
         int cur = pop_stack(stack);
-        if (cur && !deleted[cur]){
-            for (int i = 0; i < node_count; i++)
-                visited[i] = 0;
-            printf("SCC №%d", count);
-            dfs_for_result(graph, visited, deleted, cur);
-            puts("\n");
-            count++;
-        }
+        if (!visited[cur])
+            dfs_for_result(graph, visited, cur, ++colour);
     }
 
-    free(deleted);
+    print_res(visited, graph -> node_count);
 }
 
 
@@ -116,6 +128,8 @@ void Kosaraju(GRAPH * graph){
     }
 
     GRAPH * reversed_graph = reverse(graph);
+    for (int i = 0; i < node_count; i++)
+        visited[i] = 0;
 
     find_SCC(reversed_graph, stack, visited);
 

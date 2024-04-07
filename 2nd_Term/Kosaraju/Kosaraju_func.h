@@ -24,6 +24,7 @@ void dfs(GRAPH* graph, int cur, int* visited, STACK * stack);
 int pop_stack(STACK * stack);
 GRAPH * reverse(GRAPH * graph);
 void find_SCC(GRAPH * graph, STACK * stack, int * visited);
-void dfs_for_result(GRAPH * graph, int * visited, int * deleted, int cur);
+void dfs_for_result(GRAPH * graph, int * visited, int cur, int colour);
 void free_all(GRAPH * graph, GRAPH * rev_graph, STACK * stack, int * arr);
+void print_res(int * visited, int node_count);
 #endif
