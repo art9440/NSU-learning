@@ -23,3 +23,6 @@ add_executable(lab8-1 lab8-1/Prim.c
 add_executable(lab7 lab7-0/Top_Sort.c
         lab7-0/Top_sort_func.c
         lab7-0/Top_sort_func.h)
+add_executable(Kosaraju Kosaraju/Kosaraju.c
+        Kosaraju/Kosaraju_func.c
+        Kosaraju/Kosaraju_func.h)
