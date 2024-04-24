@@ -26,3 +26,4 @@ add_executable(lab7 lab7-0/Top_Sort.c
 add_executable(Kosaraju Kosaraju/Kosaraju.c
         Kosaraju/Kosaraju_func.c
         Kosaraju/Kosaraju_func.h)
+add_executable(Huffman Huffman/Huffman.c)
