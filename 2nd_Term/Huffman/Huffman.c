@@ -23,16 +23,21 @@ QUEUE{
     NODE ** heap_for_huffman;
 };
 
-void include_in_queue(NODE * connection, QUEUE * queue, int index){
-    free(queue->heap_for_huffman[index]);
-    queue->heap_for_huffman[index] = connection;
-    printf("%ld#", queue->heap_for_huffman[index]->freq);
+void sort_queue(QUEUE * queue, int index){
+    while (index > 0 && queue->heap_for_huffman[index]->freq >
+    queue->heap_for_huffman[index-1]->freq){
+        NODE * temp = queue->heap_for_huffman[index];
+        queue->heap_for_huffman[index] = queue->heap_for_huffman[index-1];
+        queue->heap_for_huffman[index-1] = temp;
+        index--;
+    }
 }
 
-void update_size(QUEUE * queue){
-    queue->size++;
+
+void update_size(QUEUE * queue, int size){
     queue->heap_for_huffman = realloc(queue->heap_for_huffman,
-                                      queue->size * sizeof(NODE*));
+                                      size * sizeof(NODE*));
+    queue->size = size;
 }
 
 
@@ -50,15 +55,20 @@ NODE * Creating_tree(QUEUE * queue){
     int index = queue->size-1;
     while (index > 0){
         NODE * connection = NULL;
-        connection = Creating_node(connection, WEOF, queue->heap_for_huffman[index]->freq);
+        connection = Creating_node(connection, WEOF,
+                                   queue->heap_for_huffman[index]->freq +
+                                   queue->heap_for_huffman[index-1]->freq);
         connection -> left = queue->heap_for_huffman[index-1];
         connection -> right = queue->heap_for_huffman[index];
-        printf("%lc -- %ld\n", connection -> left->symbol, connection -> left->freq);
-        printf("%lc -- %ld\n", connection -> right ->symbol, connection -> right ->freq);
-        queue->heap_for_huffman[index--] = connection;
-        include_in_queue(connection, queue, index);
+        //printf("%lc -- %ld\n", connection -> left->symbol, connection -> left->freq);
+        //printf("%lc -- %ld\n", connection -> right ->symbol, connection -> right ->freq);
+        queue->heap_for_huffman[--index] = connection;
+        printf("%ld\n", queue->heap_for_huffman[index]->freq);
         update_size(queue, queue->size-1);
+        printf("%ld\n", queue->heap_for_huffman[index]->freq);
+        sort_queue(queue, index);
     }
+    return queue->heap_for_huffman[0];
 }
 
 /*void print_queue(QUEUE * queue){
@@ -71,9 +81,10 @@ NODE * Creating_tree(QUEUE * queue){
 
 
 void add_node(wchar_t symbol, QUEUE * queue){
-    NODE * new_node = Creating_node(new_node, symbol, 1);
+    NODE * new_node = NULL;
+    new_node = Creating_node(new_node, symbol, 1);
 
-    update_size(queue);
+    update_size(queue, queue->size + 1);
 
     int index = queue->size - 1;
     queue->heap_for_huffman[index] = new_node;
@@ -123,7 +134,6 @@ void reading_file(FILE * input, FILE * output) {
             add_node(symbol, priority_queue);
         }
     }
-    printf("%d", priority_queue->size);
     //print_queue(priority_queue);
     NODE * huffman_tree = NULL;
     huffman_tree = Creating_tree(priority_queue);
