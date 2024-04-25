@@ -60,8 +60,7 @@ NODE * Creating_tree(QUEUE * queue){
                                    queue->heap_for_huffman[index-1]->freq);
         connection -> left = queue->heap_for_huffman[index-1];
         connection -> right = queue->heap_for_huffman[index];
-        //printf("%lc -- %ld\n", connection -> left->symbol, connection -> left->freq);
-        //printf("%lc -- %ld\n", connection -> right ->symbol, connection -> right ->freq);
+
         queue->heap_for_huffman[--index] = connection;
         printf("%ld\n", queue->heap_for_huffman[index]->freq);
         update_size(queue, queue->size-1);
@@ -71,13 +70,6 @@ NODE * Creating_tree(QUEUE * queue){
     return queue->heap_for_huffman[0];
 }
 
-/*void print_queue(QUEUE * queue){
-    for (int i = 0; i < queue->size; i++){
-        wchar_t s = queue->heap_for_huffman[i]->symbol;
-        long int f = queue->heap_for_huffman[i]->freq;
-        printf("%lc --- %ld", s, f);
-    }
-}*/
 
 
 void add_node(wchar_t symbol, QUEUE * queue){
@@ -134,9 +126,9 @@ void reading_file(FILE * input, FILE * output) {
             add_node(symbol, priority_queue);
         }
     }
-    //print_queue(priority_queue);
     NODE * huffman_tree = NULL;
     huffman_tree = Creating_tree(priority_queue);
+
 }
 
 
