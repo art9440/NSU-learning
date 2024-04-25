@@ -5,8 +5,10 @@
 #include <uchar.h>
 #include <locale.h>
 
+
 #define QUEUE struct queue
 #define NODE struct node
+
 
 NODE{
     wchar_t symbol;
