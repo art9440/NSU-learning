@@ -58,17 +58,19 @@ void add_node(wchar_t symbol, QUEUE * queue){
 }
 
 
-void Creating_queue(QUEUE * queue){
+QUEUE* Creating_queue(QUEUE * queue){
     queue = (QUEUE*) malloc(sizeof(QUEUE));
     queue->size = 0;
     queue->heap_for_huffman = NULL;
+    return queue;
 }
 
 
 void reading_file(FILE * input) {
     wchar_t symbol;
     QUEUE *priority_queue = NULL;
-    Creating_queue(priority_queue);
+    priority_queue = Creating_queue(priority_queue);
+
     while ((symbol = fgetwc(input)) != WEOF) {
         printf("%lc", symbol);
         int check_in_queue = 0;
