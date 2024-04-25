@@ -132,7 +132,7 @@ void reading_file(FILE * input, FILE * output) {
     }
     NODE * huffman_tree = NULL;
     huffman_tree = Creating_tree(priority_queue);
-    makind_codes(huffman_tree);
+    making_codes(huffman_tree);
 
 }
 
