@@ -72,7 +72,6 @@ void reading_file(FILE * input) {
     priority_queue = Creating_queue(priority_queue);
 
     while ((symbol = fgetwc(input)) != WEOF) {
-        printf("%lc", symbol);
         int check_in_queue = 0;
         for (int i = 0; i < priority_queue->size; i++){
             if (priority_queue->heap_for_huffman[i]->symbol == symbol) {
@@ -95,14 +94,15 @@ void reading_file(FILE * input) {
             add_node(symbol, priority_queue);
         }
     }
+    printf("%d", priority_queue->size);
     print_queue(priority_queue);
 }
 
 
 int main(){
     setlocale(LC_ALL, "");
-    FILE * input = fopen("in.txt", "r, ccs=UTF-8");
-    FILE * output = fopen("out.txt", "w, ccs=UTF-8");
+    FILE * input = fopen("input.txt", "r, ccs=UTF-8");
+    FILE * output = fopen("output.txt", "w, ccs=UTF-8");
     reading_file(input);
 
 
