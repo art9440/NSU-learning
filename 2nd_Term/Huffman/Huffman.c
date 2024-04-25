@@ -22,6 +22,12 @@ QUEUE{
 };
 
 
+void Creating_tree(QUEUE * queue){
+    for (int i = 0; i < queue->size; i++){
+
+    }
+}
+
 void print_queue(QUEUE * queue){
     for (int i = 0; i < queue->size; i++){
         wchar_t s = queue->heap_for_huffman[i]->symbol;
@@ -76,7 +82,6 @@ void reading_file(FILE * input) {
         for (int i = 0; i < priority_queue->size; i++){
             if (priority_queue->heap_for_huffman[i]->symbol == symbol) {
                 priority_queue->heap_for_huffman[i]->freq++;
-                check_in_queue = 1;
 
                 while (i > 0 && priority_queue->heap_for_huffman[i]
                 ->freq < priority_queue->heap_for_huffman[i - 1]->freq){
@@ -96,6 +101,7 @@ void reading_file(FILE * input) {
     }
     printf("%d", priority_queue->size);
     print_queue(priority_queue);
+    Creating_tree(priority_queue);
 }
 
 
