@@ -1,14 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <wchar.h>
 #include <uchar.h>
 #include <locale.h>
 
 
 #define QUEUE struct queue
 #define NODE struct node
+#define CODE struct code
 
+CODE{
+    unsigned int symbol;
+    unsigned int code;
+};
 
 NODE{
     wchar_t symbol;
@@ -52,20 +56,17 @@ NODE * Creating_node(NODE * node, wchar_t symbol, int long freq){
 
 
 NODE * Creating_tree(QUEUE * queue){
-    int index = queue->size-1;
-    while (index > 0){
-        NODE * connection = NULL;
-        connection = Creating_node(connection, WEOF,
-                                   queue->heap_for_huffman[index]->freq +
-                                   queue->heap_for_huffman[index-1]->freq);
-        connection -> left = queue->heap_for_huffman[index-1];
-        connection -> right = queue->heap_for_huffman[index];
+    while (queue->size > 1) {
+        NODE* connection = Creating_node(NULL, WEOF,
+                                         queue->heap_for_huffman[queue->size - 1]->freq +
+                                         queue->heap_for_huffman[queue->size - 2]->freq);
+        connection->left = queue->heap_for_huffman[queue->size - 2];
+        connection->right = queue->heap_for_huffman[queue->size - 1];
 
-        queue->heap_for_huffman[--index] = connection;
-        printf("%ld\n", queue->heap_for_huffman[index]->freq);
-        update_size(queue, queue->size-1);
-        printf("%ld\n", queue->heap_for_huffman[index]->freq);
-        sort_queue(queue, index);
+        update_size(queue, queue->size - 1);
+        queue->heap_for_huffman[queue->size - 1] = connection;
+
+        sort_queue(queue, queue->size - 1);
     }
     return queue->heap_for_huffman[0];
 }
@@ -99,12 +100,42 @@ QUEUE* Creating_queue(QUEUE * queue){
     return queue;
 }
 
-void making_codes(NODE * tree){
 
+void making_codes(NODE * tree, CODE * codes, int * index, unsigned int code){
+    if (tree->left == NULL && tree->right == NULL){
+        codes[*index].symbol = tree->symbol;
+        codes[(*index)++].code = code;
+        return;
+    }
+    making_codes(tree->left, codes, index, code << 1);
+    making_codes(tree->right, codes, index, (code << 1) | 1);
 }
 
 
-void reading_file(FILE * input, FILE * output) {
+void print_codes(CODE * codes, int  code_len){
+    FILE  * output = fopen("output.txt", "w");
+    for (int i = 0; i < code_len; i++){
+        fprintf(output, "%d --  %d ", codes[i].symbol, codes[i].code);
+    }
+    fclose(output);
+}
+
+void print_tree(NODE * tree){
+    printf("%lc -- %d\n", tree->symbol, tree->freq);
+    if (tree->left != NULL)
+        print_tree(tree->left);
+    if (tree->right != NULL)
+        print_tree(tree->right);
+    return;
+}
+
+void print_queue(QUEUE * queue){
+    for (int i = 0; i < queue->size; i++){
+        printf("%c %d#\n", queue->heap_for_huffman[i]->symbol, queue->heap_for_huffman[i]->freq);
+    }
+}
+
+void reading_file(FILE * input) {
     wchar_t symbol;
     QUEUE *priority_queue = NULL;
     priority_queue = Creating_queue(priority_queue);
@@ -121,6 +152,7 @@ void reading_file(FILE * input, FILE * output) {
                     priority_queue->heap_for_huffman[i] = priority_queue
                             ->heap_for_huffman[i - 1];
                     priority_queue->heap_for_huffman[i - 1] = temp;
+                    i--;
                 }
                 check_in_queue = 1;
                 break;
@@ -130,21 +162,22 @@ void reading_file(FILE * input, FILE * output) {
             add_node(symbol, priority_queue);
         }
     }
+    //print_queue(priority_queue);
     NODE * huffman_tree = NULL;
     huffman_tree = Creating_tree(priority_queue);
-    making_codes(huffman_tree);
-
+    //print_tree(huffman_tree);
+    CODE * all_codes = NULL;
+    all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
+    int all_codes_len = 0;
+    making_codes(huffman_tree, all_codes, &all_codes_len, 0);
+    print_codes(all_codes, all_codes_len);
 }
 
 
 int main(){
     setlocale(LC_ALL, "");
     FILE * input = fopen("input.txt", "r, ccs=UTF-8");
-    FILE * output = fopen("output.txt", "w, ccs=UTF-8");
-    reading_file(input, output);
-
-
-
-
+    reading_file(input);
+    fclose(input);
     return 0;
 }
