@@ -8,6 +8,7 @@
 #define QUEUE struct queue
 #define NODE struct node
 #define CODE struct code
+#define BITSTREAM struct bitstream
 
 CODE{
     unsigned int symbol;
@@ -26,6 +27,22 @@ QUEUE{
     int size;
     NODE ** heap_for_huffman;
 };
+
+
+BITSTREAM{
+    FILE  * file;
+    long data;
+    int position;
+};
+
+BITSTREAM * Creating_bitstream(BITSTREAM * stream){
+    stream = malloc(sizeof(BITSTREAM));
+    stream->file=
+}
+
+void tree_to_file(NODE * tree){
+
+}
 
 void sort_queue(QUEUE * queue, int index){
     while (index > 0 && queue->heap_for_huffman[index]->freq >
@@ -170,7 +187,10 @@ void reading_file(FILE * input) {
     all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
     int all_codes_len = 0;
     making_codes(huffman_tree, all_codes, &all_codes_len, 0);
-    print_codes(all_codes, all_codes_len);
+    BITSTREAM * stream = NULL;
+    stream = Creating_bitstream(stream);
+    tree_to_file(huffman_tree);
+    //print_codes(all_codes, all_codes_len);
 }
 
 
