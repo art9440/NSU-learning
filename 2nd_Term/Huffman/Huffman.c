@@ -114,7 +114,7 @@ NODE * Creating_node(NODE * node, wchar_t symbol, int long freq){
 NODE * Creating_tree(QUEUE * queue){
     int index = queue->size-1;
     while (index > 0) {
-        NODE* connection = Creating_node(connection, WEOF,
+        NODE* connection = Creating_node(NULL, WEOF,
                                          queue->heap_for_huffman[index]->freq +
                                          queue->heap_for_huffman[index - 1]->freq);
         connection->left = queue->heap_for_huffman[index - 1];
