@@ -85,7 +85,7 @@ void tree_to_file(NODE * tree, BITSTREAM * stream){
 
 void sort_queue(QUEUE * queue, int index){
     while (index > 0 && queue->heap_for_huffman[index]->freq >
-    queue->heap_for_huffman[index-1]->freq){
+                        queue->heap_for_huffman[index-1]->freq){
         NODE * temp = queue->heap_for_huffman[index];
         queue->heap_for_huffman[index] = queue->heap_for_huffman[index-1];
         queue->heap_for_huffman[index-1] = temp;
@@ -114,7 +114,7 @@ NODE * Creating_node(NODE * node, wchar_t symbol, int long freq){
 NODE * Creating_tree(QUEUE * queue){
     int index = queue->size-1;
     while (index > 0) {
-        NODE* connection = Creating_node(NULL, WEOF,
+        NODE* connection = Creating_node(connection, WEOF,
                                          queue->heap_for_huffman[index]->freq +
                                          queue->heap_for_huffman[index - 1]->freq);
         connection->left = queue->heap_for_huffman[index - 1];
@@ -140,7 +140,7 @@ void add_node(wchar_t symbol, QUEUE * queue){
     queue->heap_for_huffman[index] = new_node;
 
     while (index > 0 && queue->heap_for_huffman[index]->freq
-    >= queue->heap_for_huffman[index-1]->freq){
+                        >= queue->heap_for_huffman[index-1]->freq){
         NODE * temp =  queue->heap_for_huffman[index];
         queue->heap_for_huffman[index] =
                 queue->heap_for_huffman[index - 1];
@@ -219,7 +219,7 @@ void reading_file(FILE * input, FILE * output) {
                 priority_queue->heap_for_huffman[i]->freq++;
 
                 while (i > 0 && priority_queue->heap_for_huffman[i]
-                ->freq > priority_queue->heap_for_huffman[i - 1]->freq){
+                                        ->freq > priority_queue->heap_for_huffman[i - 1]->freq){
                     NODE *temp = priority_queue->heap_for_huffman[i];
                     priority_queue->heap_for_huffman[i] = priority_queue
                             ->heap_for_huffman[i - 1];
