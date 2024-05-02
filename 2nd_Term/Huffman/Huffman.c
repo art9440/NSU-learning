@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <uchar.h>
+#include <wchar.h>
 #include <locale.h>
 
 
@@ -39,9 +39,7 @@ BITSTREAM{
 };
 
 int last_child(NODE * tree){
-    if (tree->left == NULL && tree -> right == NULL)
-        return 1;
-    return 0;
+    return  !tree->left;
 }
 
 
@@ -64,8 +62,8 @@ void write_symbol(BITSTREAM * stream, wchar_t  symbol){
 }
 
 
-BITSTREAM * Creating_bitstream(BITSTREAM * stream, FILE * file){
-    stream = malloc(sizeof(BITSTREAM));
+BITSTREAM * Creating_bitstream( FILE * file){
+    BITSTREAM * stream = malloc(sizeof(BITSTREAM));
     stream->file= file;
     stream -> data = 0;
     stream -> position = 0;
@@ -83,16 +81,6 @@ void tree_to_file(NODE * tree, BITSTREAM * stream){
     tree_to_file(tree->right, stream);
 }
 
-void sort_queue(QUEUE * queue, int index){
-    while (index > 0 && queue->heap_for_huffman[index]->freq >
-                        queue->heap_for_huffman[index-1]->freq){
-        NODE * temp = queue->heap_for_huffman[index];
-        queue->heap_for_huffman[index] = queue->heap_for_huffman[index-1];
-        queue->heap_for_huffman[index-1] = temp;
-        index--;
-    }
-}
-
 
 void update_size(QUEUE * queue, int size){
     queue->heap_for_huffman = realloc(queue->heap_for_huffman,
@@ -101,57 +89,41 @@ void update_size(QUEUE * queue, int size){
 }
 
 
-NODE * Creating_node(NODE * node, wchar_t symbol, int long freq){
-    node = (NODE*) malloc(sizeof(NODE));
+NODE * Creating_node(wchar_t symbol, int long freq, NODE * left, NODE * right){
+    NODE * node = (NODE*) malloc(sizeof(NODE));
     node -> symbol = symbol;
     node -> freq = freq;
-    node->left = NULL;
-    node->right = NULL;
+    node->left = left;
+    node->right = right;
     return  node;
+}
+
+void add_node(NODE * new_node, QUEUE * queue){
+    update_size(queue, queue->size+1);
+    int index = queue->size - 1;
+    while (index > 0 && new_node->freq >= queue->heap_for_huffman[index-1]->freq){
+        queue->heap_for_huffman[index] = queue->heap_for_huffman[index-1];
+        index--;
+    }
+    queue->heap_for_huffman[index] = new_node;
 }
 
 
 NODE * Creating_tree(QUEUE * queue){
-    int index = queue->size-1;
-    while (index > 0) {
-        NODE* connection = Creating_node(connection, WEOF,
-                                         queue->heap_for_huffman[index]->freq +
-                                         queue->heap_for_huffman[index - 1]->freq);
-        connection->left = queue->heap_for_huffman[index - 1];
-        connection->right = queue->heap_for_huffman[index];
-
-        queue->heap_for_huffman[--index] = connection;
-        update_size(queue, queue->size - 1);
-
-        sort_queue(queue, index);
+    while (queue->size > 1){
+        NODE * left_node = queue->heap_for_huffman[--queue->size];
+        NODE * right_node = queue->heap_for_huffman[--queue->size];
+        NODE * connection = Creating_node( WEOF, left_node->freq +
+        right_node->freq, left_node, right_node);
+        add_node(connection, queue);
     }
     return queue->heap_for_huffman[0];
+
 }
 
 
-
-void add_node(wchar_t symbol, QUEUE * queue){
-    NODE * new_node = NULL;
-    new_node = Creating_node(new_node, symbol, 1);
-
-    update_size(queue, queue->size + 1);
-
-    int index = queue->size - 1;
-    queue->heap_for_huffman[index] = new_node;
-
-    while (index > 0 && queue->heap_for_huffman[index]->freq
-                        >= queue->heap_for_huffman[index-1]->freq){
-        NODE * temp =  queue->heap_for_huffman[index];
-        queue->heap_for_huffman[index] =
-                queue->heap_for_huffman[index - 1];
-        queue->heap_for_huffman[index - 1] = temp;
-        index--;
-    }
-}
-
-
-QUEUE* Creating_queue(QUEUE * queue){
-    queue = (QUEUE*) malloc(sizeof(QUEUE));
+QUEUE* Creating_queue(){
+    QUEUE * queue = (QUEUE*) malloc(sizeof(QUEUE));
     queue->size = 0;
     queue->heap_for_huffman = NULL;
     return queue;
@@ -159,11 +131,10 @@ QUEUE* Creating_queue(QUEUE * queue){
 
 
 void making_codes(NODE * tree, CODE * codes, int * index, unsigned int code, int len){
-    if (tree->left == NULL && tree->right == NULL){
+    if (tree->left == NULL ){
         codes[*index].symbol = tree->symbol;
         codes[*index].len = len;
         codes[(*index)++].code = code;
-        printf("%d -- %d\n", codes[*index].symbol, codes[*index].code);
         return;
     }
     making_codes(tree->left, codes, index, code << 1, len + 1);
@@ -206,24 +177,20 @@ void coding_text(wchar_t symbol, BITSTREAM * stream, CODE * codes, int codes_len
     }
 }
 
-
-void reading_file(FILE * input, FILE * output) {
+void To_queue(QUEUE * queue, FILE * input){
     wchar_t symbol;
-    QUEUE *priority_queue = NULL;
-    priority_queue = Creating_queue(priority_queue);
-
     while ((symbol = fgetwc(input)) != WEOF) {
         int check_in_queue = 0;
-        for (int i = 0; i < priority_queue->size; i++){
-            if (priority_queue->heap_for_huffman[i]->symbol == symbol) {
-                priority_queue->heap_for_huffman[i]->freq++;
+        for (int i = 0; i < queue->size; i++){
+            if (queue->heap_for_huffman[i]->symbol == symbol) {
+                queue->heap_for_huffman[i]->freq++;
 
-                while (i > 0 && priority_queue->heap_for_huffman[i]
-                                        ->freq > priority_queue->heap_for_huffman[i - 1]->freq){
-                    NODE *temp = priority_queue->heap_for_huffman[i];
-                    priority_queue->heap_for_huffman[i] = priority_queue
+                while (i > 0 && queue->heap_for_huffman[i]
+                                        ->freq >= queue->heap_for_huffman[i - 1]->freq){
+                    NODE *temp = queue->heap_for_huffman[i];
+                    queue->heap_for_huffman[i] = queue
                             ->heap_for_huffman[i - 1];
-                    priority_queue->heap_for_huffman[i - 1] = temp;
+                    queue->heap_for_huffman[i - 1] = temp;
                     i--;
                 }
                 check_in_queue = 1;
@@ -231,42 +198,64 @@ void reading_file(FILE * input, FILE * output) {
             }
         }
         if (!check_in_queue) {
-            add_node(symbol, priority_queue);
+            add_node(Creating_node(symbol, 1, NULL, NULL), queue);
         }
     }
-    print_queue(priority_queue);
-    NODE * huffman_tree = NULL;
-    huffman_tree = Creating_tree(priority_queue);
-    print_tree(huffman_tree);
-    CODE * all_codes = NULL;
-    all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
-    int all_codes_len = 0;
-    puts("*");
-    making_codes(huffman_tree, all_codes, &all_codes_len, 0, 0);
-    /*puts("#");
-    BITSTREAM * stream = NULL;
-    stream = Creating_bitstream(stream, output);
-    fwrite(&(huffman_tree->freq), sizeof(long), 1, stream->file);
-    tree_to_file(huffman_tree, stream);
-    rewind(input);
-    wchar_t symbol1;
-    while ((symbol1 = fgetwc(input)) != WEOF){
-        coding_text(symbol1, stream, all_codes, all_codes_len);
-    }
-
-    stream->data = stream->data << (BUFFER - stream->position);
-    fwrite(&(stream->data), sizeof(char), 1, stream->file);
-    free(priority_queue);
-    free(huffman_tree);
-    free(stream);*/
 }
 
 
-int main(){
+void incode(FILE * input, FILE * output) {
+    wchar_t symbol;
+
+    BITSTREAM * stream = Creating_bitstream(output);
+
+    QUEUE * priority_queue = Creating_queue();
+    To_queue(priority_queue, input);
+
+    NODE * huffman_tree = Creating_tree(priority_queue);
+
+
+    CODE * all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
+    int all_codes_len = 0;
+
+    making_codes(huffman_tree, all_codes, &all_codes_len, 0, 0);
+    for (int i = 0; i < all_codes_len; i++){
+        printf("%d -- %d\n", all_codes[i].symbol, all_codes[i].code);
+    }
+
+    puts("*");
+
+    /*fwrite(&(huffman_tree->freq), sizeof(long), 1, stream->file);
+    tree_to_file(huffman_tree, stream);
+    rewind(input);
+
+    while ((symbol = fgetwc(input)) != WEOF){
+        coding_text(symbol, stream, all_codes, all_codes_len);
+    }
+
+    stream->data = stream->data << (BUFFER - stream->position);
+    fwrite(&(stream->data), sizeof(char), 1, stream->file);*/
+    free(priority_queue);
+    free(huffman_tree);
+    free(stream);
+}
+
+
+int main(int argc, char * argv[]){
     setlocale(LC_ALL, "");
-    FILE * input = fopen("input.txt", "r, ccs=UTF-8");
-    FILE * output = fopen("output.txt", "w+");
-    reading_file(input, output);
+
+    char * action = argv[1];
+    char * input_file = argv[2];
+    char * output_file = argv[3];
+    FILE * input = fopen("input.txt", "r+w, ccs=UTF-8");
+    FILE * output = fopen("output.txt", "r+w");
+
+    if (strcmp(action, "c") == 0)
+        incode(input, output);
+    else if (strcmp(action, "d") == 0)
+        //decode(input, output);
+
+
     fclose(input);
     fclose(output);
     return 0;
