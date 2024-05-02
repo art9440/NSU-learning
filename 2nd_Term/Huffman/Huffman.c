@@ -205,7 +205,7 @@ void To_queue(QUEUE * queue, FILE * input){
 
 
 void incode(FILE * input, FILE * output) {
-    wint_t symbol;
+    wchar_t symbol;
 
     BITSTREAM * stream = Creating_bitstream(output);
 
@@ -216,6 +216,7 @@ void incode(FILE * input, FILE * output) {
 
     NODE * huffman_tree = Creating_tree(priority_queue);
     print_tree(huffman_tree);
+    puts("#");
 
     CODE * all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
     int all_codes_len = 0;
@@ -238,9 +239,12 @@ void incode(FILE * input, FILE * output) {
     stream->data = stream->data << (BUFFER - stream->position);
     fwrite(&(stream->data), sizeof(char), 1, stream->file);
     free(priority_queue);
+    free(all_codes);
     free(huffman_tree);
     free(stream);
 }
+
+//void decode(FILE * output, FILE * input)
 
 
 int main(int argc, char * argv[]){
@@ -260,5 +264,6 @@ int main(int argc, char * argv[]){
 
     fclose(input);
     fclose(output);
+
     return 0;
 }
