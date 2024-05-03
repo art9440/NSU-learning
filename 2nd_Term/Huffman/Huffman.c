@@ -11,6 +11,7 @@
 #define BITSTREAM struct bitstream
 
 #define BUFFER 8
+#define OCTET 32
 
 CODE{
     unsigned int symbol;
@@ -55,7 +56,7 @@ void write_bit(BITSTREAM * stream, int  bit){
 }
 
 void write_symbol(BITSTREAM * stream, wchar_t  symbol){
-    for (int i = 31; i >= 0; i--){
+    for (int i = OCTET - 1; i >= 0; i--){
         int bit = (symbol >> i) & 1;
         write_bit(stream, bit);
     }
@@ -132,6 +133,7 @@ QUEUE* Creating_queue(){
 
 void making_codes(NODE * tree, CODE * codes, int * index, unsigned int code, int len){
     if (tree->left == NULL ){
+        puts("$");
         codes[*index].symbol = tree->symbol;
         codes[*index].len = len;
         codes[(*index)++].code = code;
@@ -211,14 +213,15 @@ void incode(FILE * input, FILE * output) {
 
     QUEUE * priority_queue = Creating_queue();
     To_queue(priority_queue, input);
+    printf("%d[[[[[[\n", priority_queue->size );
 
+    CODE * all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
 
 
     NODE * huffman_tree = Creating_tree(priority_queue);
     print_tree(huffman_tree);
     puts("#");
-
-    CODE * all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
+    printf("%d---------", priority_queue->size);
     int all_codes_len = 0;
 
     making_codes(huffman_tree, all_codes, &all_codes_len, 0, 0);
@@ -244,7 +247,9 @@ void incode(FILE * input, FILE * output) {
     free(stream);
 }
 
-//void decode(FILE * output, FILE * input)
+void decode(FILE * output, FILE * input){
+
+}
 
 
 int main(int argc, char * argv[]){
@@ -259,7 +264,7 @@ int main(int argc, char * argv[]){
     if (strcmp(action, "c") == 0)
         incode(input, output);
     else if (strcmp(action, "d") == 0)
-        //decode(input, output);
+        decode(input, output);
 
 
     fclose(input);
