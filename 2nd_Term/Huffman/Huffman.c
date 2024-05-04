@@ -283,14 +283,16 @@ NODE *  Get_Tree(BITSTREAM * stream){
 
 
 void Get_Symbol(wchar_t * symbol, NODE * tree, BITSTREAM * stream){
-    while (!last_child(tree)){
+    NODE * cur = tree;
+    while (!last_child(cur)){
         int bit;
         read_bit(&bit, stream);
         if (bit == 0)
-            tree = tree->left;
-        tree = tree->right;
+            cur = cur -> left;
+        cur = cur -> right;
     }
-    *symbol = tree->symbol;
+    *symbol = cur -> symbol;
+    printf("%lc ", *symbol);
 }
 
 
@@ -302,6 +304,7 @@ void decode(FILE * input, FILE * output){
     NODE * tree = Get_Tree(stream);
     for (int i = 0; i < len; i++){
         wchar_t symbol;
+        puts("*");
         Get_Symbol(&symbol, tree, stream);
         fwrite(&symbol, sizeof(wchar_t), 1, output);
     }
