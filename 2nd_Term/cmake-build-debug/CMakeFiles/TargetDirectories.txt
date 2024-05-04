@@ -2,5 +2,8 @@ C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/N
 C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/lab9.dir
 C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/lab8.dir
 C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/lab8-1.dir
+C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/lab7.dir
+C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/Kosaraju.dir
+C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/Huffman.dir
 C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/CMakeFiles/rebuild_cache.dir
