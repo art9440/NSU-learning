@@ -129,6 +129,14 @@ build CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj: C_COMPILER__lab8_unscanned_Debug
   TARGET_COMPILE_PDB = CMakeFiles\lab8.dir\
   TARGET_PDB = lab8.pdb
 
+build CMakeFiles/lab8.dir/lab8-1/Prim.c.obj: C_COMPILER__lab8_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim.c || cmake_object_order_depends_target_lab8
+  DEP_FILE = CMakeFiles\lab8.dir\lab8-1\Prim.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab8.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab8.dir\lab8-1
+  TARGET_COMPILE_PDB = CMakeFiles\lab8.dir\
+  TARGET_PDB = lab8.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab8
@@ -137,7 +145,7 @@ build CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj: C_COMPILER__lab8_unscanned_Debug
 #############################################
 # Link the executable lab8.exe
 
-build lab8.exe: C_EXECUTABLE_LINKER__lab8_Debug CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj
+build lab8.exe: C_EXECUTABLE_LINKER__lab8_Debug CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj CMakeFiles/lab8.dir/lab8-1/Prim.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\lab8.dir
@@ -147,6 +155,42 @@ build lab8.exe: C_EXECUTABLE_LINKER__lab8_Debug CMakeFiles/lab8.dir/lab8-0/Krusk
   TARGET_FILE = lab8.exe
   TARGET_IMPLIB = liblab8.dll.a
   TARGET_PDB = lab8.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target lab8-1
+
+
+#############################################
+# Order-only phony target for lab8-1
+
+build cmake_object_order_depends_target_lab8-1: phony || CMakeFiles/lab8-1.dir
+
+build CMakeFiles/lab8-1.dir/lab8-1/Prim.c.obj: C_COMPILER__lab8-1_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim.c || cmake_object_order_depends_target_lab8-1
+  DEP_FILE = CMakeFiles\lab8-1.dir\lab8-1\Prim.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab8-1.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab8-1.dir\lab8-1
+  TARGET_COMPILE_PDB = CMakeFiles\lab8-1.dir\
+  TARGET_PDB = lab8-1.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target lab8-1
+
+
+#############################################
+# Link the executable lab8-1.exe
+
+build lab8-1.exe: C_EXECUTABLE_LINKER__lab8-1_Debug CMakeFiles/lab8-1.dir/lab8-1/Prim.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\lab8-1.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\lab8-1.dir\
+  TARGET_FILE = lab8-1.exe
+  TARGET_IMPLIB = liblab8-1.dll.a
+  TARGET_PDB = lab8-1.pdb
 
 
 #############################################
@@ -178,6 +222,8 @@ build NSU_learning: phony NSU_learning.exe
 
 build lab8: phony lab8.exe
 
+build lab8-1: phony lab8-1.exe
+
 build lab9: phony lab9.exe
 
 # =============================================================================
@@ -188,7 +234,7 @@ build lab9: phony lab9.exe
 #############################################
 # Folder: C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug
 
-build all: phony NSU_learning.exe lab9.exe lab8.exe
+build all: phony NSU_learning.exe lab9.exe lab8.exe lab8-1.exe
 
 # =============================================================================
 # Built-in targets
