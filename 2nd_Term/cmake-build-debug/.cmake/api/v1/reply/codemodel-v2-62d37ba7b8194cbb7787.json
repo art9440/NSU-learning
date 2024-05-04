@@ -19,7 +19,9 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5,
+						6
 					]
 				}
 			],
@@ -38,12 +40,28 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5,
+						6
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Huffman::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Huffman-Debug-daea6cb400783707e018.json",
+					"name" : "Huffman",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Kosaraju::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Kosaraju-Debug-ac116b6108a0ad1febdc.json",
+					"name" : "Kosaraju",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 0,
 					"id" : "NSU_learning::@6890427a1f51a3e7e1df",
