@@ -247,8 +247,65 @@ void incode(FILE * input, FILE * output) {
     free(stream);
 }
 
-void decode(FILE * output, FILE * input){
+void read_bit(int * bit, BITSTREAM * stream){
+    if (stream -> position == 0){
+        fread(&(stream->data), sizeof(char), 1, stream->file);
+        stream->position = BUFFER;
+    }
+    stream->position--;
+    *bit = (stream->data >> stream->position) & 1;
+}
 
+void read_symbol(wchar_t * symbol, BITSTREAM * stream){
+    * symbol = 0;
+    for (int i = 0; i < OCTET - 1; i++){
+        *symbol = *symbol << 1;
+        int bit;
+        read_bit(&bit, stream);
+        *symbol = *symbol | bit;
+    }
+}
+
+
+
+NODE *  Get_Tree(BITSTREAM * stream){
+    int bit;
+    read_bit(&bit, stream);
+    if (bit == 1){
+        wchar_t symbol;
+        read_symbol(&symbol, stream);
+        return Creating_node(symbol, 0, NULL, NULL);
+    }
+    NODE * left_node = Get_Tree(stream);
+    NODE * right_node = Get_Tree(stream);
+    return Creating_node(WEOF, 0, left_node, right_node);
+}
+
+
+void Get_Symbol(wchar_t * symbol, NODE * tree, BITSTREAM * stream){
+    while (!last_child(tree)){
+        int bit;
+        read_bit(&bit, stream);
+        if (bit == 0)
+            tree = tree->left;
+        tree = tree->right;
+    }
+    *symbol = tree->symbol;
+}
+
+
+void decode(FILE * input, FILE * output){
+    BITSTREAM * stream = Creating_bitstream(input);
+    int len;
+    fread(&len, sizeof(int), 1, input);
+    printf("%d", len);
+    NODE * tree = Get_Tree(stream);
+    for (int i = 0; i < len; i++){
+        wchar_t symbol;
+        Get_Symbol(&symbol, tree, stream);
+        fwrite(&symbol, sizeof(wchar_t), 1, output);
+    }
+    free(stream);
 }
 
 
