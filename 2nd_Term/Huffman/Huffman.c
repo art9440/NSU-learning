@@ -39,10 +39,13 @@ BITSTREAM{
     int position;
 };
 
+
+
+
+
 int last_child(NODE * tree){
     return  !tree->left;
 }
-
 
 
 void write_bit(BITSTREAM * stream, int  bit){
@@ -74,6 +77,8 @@ BITSTREAM * Creating_bitstream( FILE * file){
 void tree_to_file(NODE * tree, BITSTREAM * stream){
     if (last_child(tree)){
         write_bit(stream, 1);
+        printf("1");
+        printf("%c", tree->symbol);
         write_symbol(stream, tree->symbol);
         return;
     }
@@ -153,7 +158,7 @@ void print_codes(CODE * codes, int  code_len){
 }
 
 void print_tree(NODE * tree){
-    printf("%lc -- %d\n", tree->symbol, tree->freq);
+    printf("%d -- %d\n", tree->symbol, tree->freq);
     if (tree->left != NULL)
         print_tree(tree->left);
     if (tree->right != NULL)
@@ -203,6 +208,7 @@ void To_queue(QUEUE * queue, FILE * input){
             add_node(Creating_node(symbol, 1, NULL, NULL), queue);
         }
     }
+    rewind(input);
 }
 
 
@@ -220,18 +226,18 @@ void incode(FILE * input, FILE * output) {
 
     NODE * huffman_tree = Creating_tree(priority_queue);
     print_tree(huffman_tree);
-    puts("#");
-    printf("%d---------", priority_queue->size);
+    puts("#---------");
+    //printf("%d---------", priority_queue->size);
     int all_codes_len = 0;
 
     making_codes(huffman_tree, all_codes, &all_codes_len, 0, 0);
     for (int i = 0; i < all_codes_len; i++){
-        printf("%d -- %d\n", all_codes[i].symbol, all_codes[i].code);
+        printf("%lc -- %d\n", all_codes[i].symbol, all_codes[i].code);
     }
 
     puts("*");
 
-    fwrite(&(huffman_tree->freq), sizeof(long), 1, stream->file);
+    fwrite(&(huffman_tree->freq), sizeof(int), 1, stream->file);
     tree_to_file(huffman_tree, stream);
     rewind(input);
 
@@ -247,67 +253,79 @@ void incode(FILE * input, FILE * output) {
     free(stream);
 }
 
-void read_bit(int * bit, BITSTREAM * stream){
-    if (stream -> position == 0){
-        fread(&(stream->data), sizeof(char), 1, stream->file);
+int read_bit(int  bit, BITSTREAM * stream){
+    if (stream->position == 0)
         stream->position = BUFFER;
-    }
-    stream->position--;
-    *bit = (stream->data >> stream->position) & 1;
+
+    stream->position = -1;
+    bit = (stream->data >> stream->position) & 1;
+    return bit;
 }
 
 void read_symbol(wchar_t * symbol, BITSTREAM * stream){
-    * symbol = 0;
-    for (int i = 0; i < OCTET - 1; i++){
+    *symbol = 0;
+    for (int i = 0; i < OCTET; i++){
         *symbol = *symbol << 1;
         int bit;
-        read_bit(&bit, stream);
+        bit = read_bit(bit, stream);
         *symbol = *symbol | bit;
     }
 }
 
 
-
-NODE *  Get_Tree(BITSTREAM * stream){
+NODE * Get_Tree(BITSTREAM * stream){
     int bit;
-    read_bit(&bit, stream);
+    bit = read_bit(bit, stream);
+    printf("%d", bit);
     if (bit == 1){
         wchar_t symbol;
         read_symbol(&symbol, stream);
-        return Creating_node(symbol, 0, NULL, NULL);
+        return Creating_node(symbol, 1, NULL, NULL);
     }
     NODE * left_node = Get_Tree(stream);
     NODE * right_node = Get_Tree(stream);
-    return Creating_node(WEOF, 0, left_node, right_node);
+    return Creating_node(WEOF, 1, left_node, right_node);
 }
 
-
-void Get_Symbol(wchar_t * symbol, NODE * tree, BITSTREAM * stream){
+void Get_symbol(wchar_t * symbol, BITSTREAM * stream, NODE * tree){
     NODE * cur = tree;
     while (!last_child(cur)){
         int bit;
-        read_bit(&bit, stream);
+        bit = read_bit(bit, stream);
         if (bit == 0)
-            cur = cur -> left;
-        cur = cur -> right;
+            cur = cur->left;
+        else
+            cur = cur->right;
     }
-    *symbol = cur -> symbol;
-    printf("%lc ", *symbol);
+    *symbol = cur->symbol;
 }
+
+void free_tree(NODE * tree){
+    if (tree == NULL)
+        return;
+    free_tree(tree->left);
+    free_tree(tree->right);
+    free(tree);
+}
+
 
 
 void decode(FILE * input, FILE * output){
     BITSTREAM * stream = Creating_bitstream(input);
     int len;
-    fread(&len, sizeof(int), 1, input);
+    fread(&len, sizeof(long), 1, stream->file);
     printf("%d", len);
+    puts("*");
     NODE * tree = Get_Tree(stream);
+    puts("#");
+    print_tree(tree);
+
     for (int i = 0; i < len; i++){
         wchar_t symbol;
-        puts("*");
-        Get_Symbol(&symbol, tree, stream);
+        Get_symbol(&symbol, stream, tree);
         fwrite(&symbol, sizeof(wchar_t), 1, output);
     }
+    free_tree(tree);
     free(stream);
 }
 
@@ -318,17 +336,22 @@ int main(int argc, char * argv[]){
     char * action = argv[1];
     char * input_file = argv[2];
     char * output_file = argv[3];
-    FILE * input = fopen("input.txt", "r+w, ccs=UTF-8");
-    FILE * output = fopen("output.txt", "r+w");
 
-    if (strcmp(action, "c") == 0)
+    if (strcmp(action, "c") == 0) {
+        FILE * input = fopen(input_file, "r+, ccs=UTF-8");
+        FILE * output = fopen(output_file, "wb");
         incode(input, output);
+        fclose(input);
+        fclose(output);
+    }
     else if (strcmp(action, "d") == 0)
+    {
+        FILE * input = fopen(input_file, "rb");
+        FILE * output = fopen(output_file, "wb");
         decode(input, output);
-
-
-    fclose(input);
-    fclose(output);
+        fclose(input);
+        fclose(output);
+    }
 
     return 0;
 }
