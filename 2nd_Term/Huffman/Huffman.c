@@ -39,7 +39,6 @@ BITSTREAM{
     int position;
 };
 
-
 int last_child(NODE * tree){
     return  !tree->left;
 }
