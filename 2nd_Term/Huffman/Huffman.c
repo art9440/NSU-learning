@@ -83,8 +83,8 @@ BITSTREAM * Creating_bitstream( FILE * file){
 void tree_to_file(NODE * tree, BITSTREAM * stream){
     if (last_child(tree)){
         write_bit(stream, 1);
-        printf("1");
-        printf("%c", tree->symbol);
+        //printf("1");
+        //printf("%c", tree->symbol);
         write_symbol(stream, tree->symbol);
         return;
     }
@@ -144,7 +144,7 @@ QUEUE* Creating_queue(){
 
 void making_codes(NODE * tree, CODE * codes, int * index, unsigned int code, int len){
     if (tree->left == NULL ){
-        puts("$");
+        //puts("$");
         codes[*index].symbol = tree->symbol;
         codes[*index].len = len;
         codes[(*index)++].code = code;
@@ -185,7 +185,7 @@ void coding_text(wchar_t symbol, BITSTREAM * stream, CODE * codes, int codes_len
     }
     for (int j = codes[i].len - 1; j >= 0; j--){
         int bit = (codes[i].code >> j) & 1;
-        printf("%d==\n", bit);
+        //printf("%d==\n", bit);
         write_bit(stream, bit);
     }
 }
@@ -193,7 +193,7 @@ void coding_text(wchar_t symbol, BITSTREAM * stream, CODE * codes, int codes_len
 void To_queue(QUEUE * queue, FILE * input){
     wchar_t symbol;
     while ((symbol = fgetwc(input)) != WEOF) {
-        printf(" %d ", symbol);
+        //printf(" %d ", symbol);
         int check_in_queue = 0;
         for (int i = 0; i < queue->size; i++){
             if (queue->heap_for_huffman[i]->symbol == symbol) {
@@ -226,23 +226,23 @@ void encode(FILE * input, FILE * output) {
 
     QUEUE * priority_queue = Creating_queue();
     To_queue(priority_queue, input);
-    printf("%d[[[[[[\n", priority_queue->size);
+    //printf("%d[[[[[[\n", priority_queue->size);
 
     CODE * all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
 
 
     NODE * huffman_tree = Creating_tree(priority_queue);
-    print_tree(huffman_tree);
-    puts("#---------");
+    //print_tree(huffman_tree);
+    //puts("#---------");
     //printf("%d---------", priority_queue->size);
     int all_codes_len = 0;
 
     making_codes(huffman_tree, all_codes, &all_codes_len, 0, 0);
-    for (int i = 0; i < all_codes_len; i++){
-        printf("%lc -- %d\n", all_codes[i].symbol, all_codes[i].code);
-    }
+    //for (int i = 0; i < all_codes_len; i++){
+        //printf("%lc -- %d\n", all_codes[i].symbol, all_codes[i].code);
+    //}
 
-    puts("*");
+    //puts("*");
 
 
     fwrite(&(huffman_tree->freq), sizeof(int), 1, stream->file);
@@ -295,7 +295,6 @@ NODE * Get_Tree(BITSTREAM * stream){
     int bit;
     if(read_bit(&bit, stream) == error)
         return NULL;
-    //printf("%d", bit);
     if (bit == 1){
         wchar_t symbol;
         if(read_symbol(&symbol, stream) == error)
@@ -334,10 +333,10 @@ void decode(FILE * input, FILE * output){
     BITSTREAM * stream = Creating_bitstream(input);
     int len;
     fread(&len, sizeof(long), 1, stream->file);
-    printf("%d", len);
-    puts("*");
+    //printf("%d", len);
+    //puts("*");
     NODE * tree = Get_Tree(stream);
-    puts("#");
+    //puts("#");
     print_tree(tree);
 
     for (int i = 0; i < len; i++){
