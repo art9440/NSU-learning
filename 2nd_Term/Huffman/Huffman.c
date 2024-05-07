@@ -8,6 +8,7 @@
 #define NODE struct node
 #define CODE struct code
 #define BITSTREAM struct bitstream
+#define ERRORS enum errors
 
 #define BUFFER 8
 #define OCTET 32
@@ -37,6 +38,12 @@ BITSTREAM{
     long data;
     int position;
 };
+
+ERRORS{
+    non_error,
+    error
+};
+
 
 
 
@@ -118,7 +125,7 @@ NODE * Creating_tree(QUEUE * queue){
     while (queue->size > 1){
         NODE * left_node = queue->heap_for_huffman[--queue->size];
         NODE * right_node = queue->heap_for_huffman[--queue->size];
-        NODE * connection = Creating_node( WEOF, left_node->freq +
+        NODE * connection = Creating_node( 0, left_node->freq +
         right_node->freq, left_node, right_node);
         add_node(connection, queue);
     }
@@ -253,37 +260,46 @@ void encode(FILE * input, FILE * output) {
     free(stream);
 }
 
-void read_bit(int  *bit, BITSTREAM * stream){
-    if (stream->position == 0)
+ERRORS read_bit(int  *bit, BITSTREAM * stream){
+    if (stream->position == 0) {
+        if (fread(&(stream->data), sizeof(char), 1, stream->file) != 1)
+            return error;
         stream->position = BUFFER;
+    }
 
-    stream->position = -1;
+    stream->position--;
     *bit = (stream->data >> stream->position) & 1;
+    return non_error;
 }
 
-void read_symbol(wchar_t * symbol, BITSTREAM * stream){
+ERRORS read_symbol(wchar_t * symbol, BITSTREAM * stream){
     *symbol = 0;
     for (int i = 0; i < OCTET; i++){
         *symbol = *symbol << 1;
         int bit;
-        read_bit(&bit, stream);
+
+        if(read_bit(&bit, stream) == error)
+            return error;
         *symbol = *symbol | bit;
     }
+    return non_error;
 }
 
 
 NODE * Get_Tree(BITSTREAM * stream){
     int bit;
-    read_bit(&bit, stream);
-    printf("%d", bit);
+    if(read_bit(&bit, stream) == error)
+        return NULL;
+    //printf("%d", bit);
     if (bit == 1){
         wchar_t symbol;
-        read_symbol(&symbol, stream);
-        return Creating_node(symbol, 1, NULL, NULL);
+        if(read_symbol(&symbol, stream) == error)
+            return NULL;
+        return Creating_node(symbol, 0, NULL, NULL);
     }
     NODE * left_node = Get_Tree(stream);
     NODE * right_node = Get_Tree(stream);
-    return Creating_node(WEOF, 1, left_node, right_node);
+    return Creating_node(0, 0, left_node, right_node);
 }
 
 void Get_symbol(wchar_t * symbol, BITSTREAM * stream, NODE * tree){
