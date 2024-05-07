@@ -244,11 +244,16 @@ void encode(FILE * input, FILE * output) {
 
     puts("*");
 
+
     fwrite(&(huffman_tree->freq), sizeof(int), 1, stream->file);
     tree_to_file(huffman_tree, stream);
+
+    fseek(input, 0, SEEK_END);
+    long count_byte = ftell(input);
     rewind(input);
 
-    while ((symbol = fgetwc(input)) != WEOF){
+    for (int i = 0; i < count_byte / sizeof(wchar_t); i++){
+        symbol = fgetwc(input);
         coding_text(symbol, stream, all_codes, all_codes_len);
     }
 
