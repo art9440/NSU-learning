@@ -93,6 +93,120 @@
 					<DistClean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="lab8">
+				<Option output="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/lab8.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab8"/>
+					<CompileFile command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lab8/fast">
+				<Option output="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/lab8.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab8/fast"/>
+					<CompileFile command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lab8-1">
+				<Option output="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/lab8-1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab8-1"/>
+					<CompileFile command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lab8-1/fast">
+				<Option output="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/lab8-1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab8-1/fast"/>
+					<CompileFile command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lab7">
+				<Option output="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/lab7.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab7"/>
+					<CompileFile command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lab7/fast">
+				<Option output="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/lab7.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/user/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 lab7/fast"/>
+					<CompileFile command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/user/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug"/>
 				<Option type="4"/>
@@ -119,6 +233,34 @@
 		</Unit>
 		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/AVL_tree/functions.h">
 			<Option target="NSU_learning"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab7-0/Top_Sort.c">
+			<Option target="lab7"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab7-0/Top_sort_func.c">
+			<Option target="lab7"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab7-0/Top_sort_func.h">
+			<Option target="lab7"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-0">
+			<Option target="lab8"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-0/Graph.h">
+			<Option target="lab8"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-0/Kruskal.c">
+			<Option target="lab8"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim.c">
+			<Option target="lab8"/>
+			<Option target="lab8-1"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim_function.c">
+			<Option target="lab8-1"/>
+		</Unit>
+		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim_function.h">
+			<Option target="lab8-1"/>
 		</Unit>
 		<Unit filename="C:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab9-0/Graph_func.h">
 			<Option target="lab9"/>

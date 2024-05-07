@@ -141,6 +141,45 @@ lab9/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab9.dir\build.make CMakeFiles/lab9.dir/build
 .PHONY : lab9/fast
 
+#=============================================================================
+# Target rules for targets named lab8
+
+# Build rule for target.
+lab8: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lab8
+.PHONY : lab8
+
+# fast build rule for target.
+lab8/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/build
+.PHONY : lab8/fast
+
+#=============================================================================
+# Target rules for targets named lab8-1
+
+# Build rule for target.
+lab8-1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lab8-1
+.PHONY : lab8-1
+
+# fast build rule for target.
+lab8-1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/build
+.PHONY : lab8-1/fast
+
+#=============================================================================
+# Target rules for targets named lab7
+
+# Build rule for target.
+lab7: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lab7
+.PHONY : lab7
+
+# fast build rule for target.
+lab7/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/build
+.PHONY : lab7/fast
+
 AVL_tree/AVL_tree.obj: AVL_tree/AVL_tree.c.obj
 .PHONY : AVL_tree/AVL_tree.obj
 
@@ -164,6 +203,129 @@ AVL_tree/AVL_tree.s: AVL_tree/AVL_tree.c.s
 AVL_tree/AVL_tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NSU_learning.dir\build.make CMakeFiles/NSU_learning.dir/AVL_tree/AVL_tree.c.s
 .PHONY : AVL_tree/AVL_tree.c.s
+
+lab7-0/Top_Sort.obj: lab7-0/Top_Sort.c.obj
+.PHONY : lab7-0/Top_Sort.obj
+
+# target to build an object file
+lab7-0/Top_Sort.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/lab7-0/Top_Sort.c.obj
+.PHONY : lab7-0/Top_Sort.c.obj
+
+lab7-0/Top_Sort.i: lab7-0/Top_Sort.c.i
+.PHONY : lab7-0/Top_Sort.i
+
+# target to preprocess a source file
+lab7-0/Top_Sort.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/lab7-0/Top_Sort.c.i
+.PHONY : lab7-0/Top_Sort.c.i
+
+lab7-0/Top_Sort.s: lab7-0/Top_Sort.c.s
+.PHONY : lab7-0/Top_Sort.s
+
+# target to generate assembly for a file
+lab7-0/Top_Sort.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/lab7-0/Top_Sort.c.s
+.PHONY : lab7-0/Top_Sort.c.s
+
+lab7-0/Top_sort_func.obj: lab7-0/Top_sort_func.c.obj
+.PHONY : lab7-0/Top_sort_func.obj
+
+# target to build an object file
+lab7-0/Top_sort_func.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/lab7-0/Top_sort_func.c.obj
+.PHONY : lab7-0/Top_sort_func.c.obj
+
+lab7-0/Top_sort_func.i: lab7-0/Top_sort_func.c.i
+.PHONY : lab7-0/Top_sort_func.i
+
+# target to preprocess a source file
+lab7-0/Top_sort_func.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/lab7-0/Top_sort_func.c.i
+.PHONY : lab7-0/Top_sort_func.c.i
+
+lab7-0/Top_sort_func.s: lab7-0/Top_sort_func.c.s
+.PHONY : lab7-0/Top_sort_func.s
+
+# target to generate assembly for a file
+lab7-0/Top_sort_func.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/lab7-0/Top_sort_func.c.s
+.PHONY : lab7-0/Top_sort_func.c.s
+
+lab8-0/Kruskal.obj: lab8-0/Kruskal.c.obj
+.PHONY : lab8-0/Kruskal.obj
+
+# target to build an object file
+lab8-0/Kruskal.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj
+.PHONY : lab8-0/Kruskal.c.obj
+
+lab8-0/Kruskal.i: lab8-0/Kruskal.c.i
+.PHONY : lab8-0/Kruskal.i
+
+# target to preprocess a source file
+lab8-0/Kruskal.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kruskal.c.i
+.PHONY : lab8-0/Kruskal.c.i
+
+lab8-0/Kruskal.s: lab8-0/Kruskal.c.s
+.PHONY : lab8-0/Kruskal.s
+
+# target to generate assembly for a file
+lab8-0/Kruskal.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-0/Kruskal.c.s
+.PHONY : lab8-0/Kruskal.c.s
+
+lab8-1/Prim.obj: lab8-1/Prim.c.obj
+.PHONY : lab8-1/Prim.obj
+
+# target to build an object file
+lab8-1/Prim.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-1/Prim.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim.c.obj
+.PHONY : lab8-1/Prim.c.obj
+
+lab8-1/Prim.i: lab8-1/Prim.c.i
+.PHONY : lab8-1/Prim.i
+
+# target to preprocess a source file
+lab8-1/Prim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-1/Prim.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim.c.i
+.PHONY : lab8-1/Prim.c.i
+
+lab8-1/Prim.s: lab8-1/Prim.c.s
+.PHONY : lab8-1/Prim.s
+
+# target to generate assembly for a file
+lab8-1/Prim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/lab8-1/Prim.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim.c.s
+.PHONY : lab8-1/Prim.c.s
+
+lab8-1/Prim_function.obj: lab8-1/Prim_function.c.obj
+.PHONY : lab8-1/Prim_function.obj
+
+# target to build an object file
+lab8-1/Prim_function.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim_function.c.obj
+.PHONY : lab8-1/Prim_function.c.obj
+
+lab8-1/Prim_function.i: lab8-1/Prim_function.c.i
+.PHONY : lab8-1/Prim_function.i
+
+# target to preprocess a source file
+lab8-1/Prim_function.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim_function.c.i
+.PHONY : lab8-1/Prim_function.c.i
+
+lab8-1/Prim_function.s: lab8-1/Prim_function.c.s
+.PHONY : lab8-1/Prim_function.s
+
+# target to generate assembly for a file
+lab8-1/Prim_function.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/lab8-1/Prim_function.c.s
+.PHONY : lab8-1/Prim_function.c.s
 
 lab9-0/lab9-0.obj: lab9-0/lab9-0.c.obj
 .PHONY : lab9-0/lab9-0.obj
@@ -198,10 +360,28 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... NSU_learning
+	@echo ... lab7
+	@echo ... lab8
+	@echo ... lab8-1
 	@echo ... lab9
 	@echo ... AVL_tree/AVL_tree.obj
 	@echo ... AVL_tree/AVL_tree.i
 	@echo ... AVL_tree/AVL_tree.s
+	@echo ... lab7-0/Top_Sort.obj
+	@echo ... lab7-0/Top_Sort.i
+	@echo ... lab7-0/Top_Sort.s
+	@echo ... lab7-0/Top_sort_func.obj
+	@echo ... lab7-0/Top_sort_func.i
+	@echo ... lab7-0/Top_sort_func.s
+	@echo ... lab8-0/Kruskal.obj
+	@echo ... lab8-0/Kruskal.i
+	@echo ... lab8-0/Kruskal.s
+	@echo ... lab8-1/Prim.obj
+	@echo ... lab8-1/Prim.i
+	@echo ... lab8-1/Prim.s
+	@echo ... lab8-1/Prim_function.obj
+	@echo ... lab8-1/Prim_function.i
+	@echo ... lab8-1/Prim_function.s
 	@echo ... lab9-0/lab9-0.obj
 	@echo ... lab9-0/lab9-0.i
 	@echo ... lab9-0/lab9-0.s

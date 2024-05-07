@@ -16,7 +16,12 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
 					]
 				}
 			],
@@ -32,7 +37,12 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
 					]
 				}
 			],
@@ -40,9 +50,44 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "Huffman::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Huffman-Debug-daea6cb400783707e018.json",
+					"name" : "Huffman",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Kosaraju::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Kosaraju-Debug-ac116b6108a0ad1febdc.json",
+					"name" : "Kosaraju",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "NSU_learning::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-NSU_learning-Debug-6cb8fec2be7bd84bcdc5.json",
 					"name" : "NSU_learning",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab7::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab7-Debug-c38afb0a6bf1b753ad88.json",
+					"name" : "lab7",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab8::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab8-Debug-86e493c4c581a8114586.json",
+					"name" : "lab8",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab8-1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab8-1-Debug-846bb8a45d33c097fdb9.json",
+					"name" : "lab8-1",
 					"projectIndex" : 0
 				},
 				{

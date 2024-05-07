@@ -106,6 +106,195 @@ build lab9.exe: C_EXECUTABLE_LINKER__lab9_Debug CMakeFiles/lab9.dir/lab9-0/lab9-
   TARGET_IMPLIB = liblab9.dll.a
   TARGET_PDB = lab9.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target lab8
+
+
+#############################################
+# Order-only phony target for lab8
+
+build cmake_object_order_depends_target_lab8: phony || CMakeFiles/lab8.dir
+
+build CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj: C_COMPILER__lab8_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-0/Kruskal.c || cmake_object_order_depends_target_lab8
+  DEP_FILE = CMakeFiles\lab8.dir\lab8-0\Kruskal.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab8.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab8.dir\lab8-0
+
+build CMakeFiles/lab8.dir/lab8-1/Prim.c.obj: C_COMPILER__lab8_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim.c || cmake_object_order_depends_target_lab8
+  DEP_FILE = CMakeFiles\lab8.dir\lab8-1\Prim.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab8.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab8.dir\lab8-1
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target lab8
+
+
+#############################################
+# Link the executable lab8.exe
+
+build lab8.exe: C_EXECUTABLE_LINKER__lab8_Debug CMakeFiles/lab8.dir/lab8-0/Kruskal.c.obj CMakeFiles/lab8.dir/lab8-1/Prim.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\lab8.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lab8.exe
+  TARGET_IMPLIB = liblab8.dll.a
+  TARGET_PDB = lab8.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target lab8-1
+
+
+#############################################
+# Order-only phony target for lab8-1
+
+build cmake_object_order_depends_target_lab8-1: phony || CMakeFiles/lab8-1.dir
+
+build CMakeFiles/lab8-1.dir/lab8-1/Prim.c.obj: C_COMPILER__lab8-1_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim.c || cmake_object_order_depends_target_lab8-1
+  DEP_FILE = CMakeFiles\lab8-1.dir\lab8-1\Prim.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab8-1.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab8-1.dir\lab8-1
+
+build CMakeFiles/lab8-1.dir/lab8-1/Prim_function.c.obj: C_COMPILER__lab8-1_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab8-1/Prim_function.c || cmake_object_order_depends_target_lab8-1
+  DEP_FILE = CMakeFiles\lab8-1.dir\lab8-1\Prim_function.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab8-1.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab8-1.dir\lab8-1
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target lab8-1
+
+
+#############################################
+# Link the executable lab8-1.exe
+
+build lab8-1.exe: C_EXECUTABLE_LINKER__lab8-1_Debug CMakeFiles/lab8-1.dir/lab8-1/Prim.c.obj CMakeFiles/lab8-1.dir/lab8-1/Prim_function.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\lab8-1.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lab8-1.exe
+  TARGET_IMPLIB = liblab8-1.dll.a
+  TARGET_PDB = lab8-1.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target lab7
+
+
+#############################################
+# Order-only phony target for lab7
+
+build cmake_object_order_depends_target_lab7: phony || CMakeFiles/lab7.dir
+
+build CMakeFiles/lab7.dir/lab7-0/Top_Sort.c.obj: C_COMPILER__lab7_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab7-0/Top_Sort.c || cmake_object_order_depends_target_lab7
+  DEP_FILE = CMakeFiles\lab7.dir\lab7-0\Top_Sort.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab7.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab7.dir\lab7-0
+
+build CMakeFiles/lab7.dir/lab7-0/Top_sort_func.c.obj: C_COMPILER__lab7_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/lab7-0/Top_sort_func.c || cmake_object_order_depends_target_lab7
+  DEP_FILE = CMakeFiles\lab7.dir\lab7-0\Top_sort_func.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab7.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab7.dir\lab7-0
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target lab7
+
+
+#############################################
+# Link the executable lab7.exe
+
+build lab7.exe: C_EXECUTABLE_LINKER__lab7_Debug CMakeFiles/lab7.dir/lab7-0/Top_Sort.c.obj CMakeFiles/lab7.dir/lab7-0/Top_sort_func.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\lab7.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lab7.exe
+  TARGET_IMPLIB = liblab7.dll.a
+  TARGET_PDB = lab7.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Kosaraju
+
+
+#############################################
+# Order-only phony target for Kosaraju
+
+build cmake_object_order_depends_target_Kosaraju: phony || CMakeFiles/Kosaraju.dir
+
+build CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju.c.obj: C_COMPILER__Kosaraju_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/Kosaraju/Kosaraju.c || cmake_object_order_depends_target_Kosaraju
+  DEP_FILE = CMakeFiles\Kosaraju.dir\Kosaraju\Kosaraju.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Kosaraju.dir
+  OBJECT_FILE_DIR = CMakeFiles\Kosaraju.dir\Kosaraju
+
+build CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju_func.c.obj: C_COMPILER__Kosaraju_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/Kosaraju/Kosaraju_func.c || cmake_object_order_depends_target_Kosaraju
+  DEP_FILE = CMakeFiles\Kosaraju.dir\Kosaraju\Kosaraju_func.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Kosaraju.dir
+  OBJECT_FILE_DIR = CMakeFiles\Kosaraju.dir\Kosaraju
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Kosaraju
+
+
+#############################################
+# Link the executable Kosaraju.exe
+
+build Kosaraju.exe: C_EXECUTABLE_LINKER__Kosaraju_Debug CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju.c.obj CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju_func.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Kosaraju.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Kosaraju.exe
+  TARGET_IMPLIB = libKosaraju.dll.a
+  TARGET_PDB = Kosaraju.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Huffman
+
+
+#############################################
+# Order-only phony target for Huffman
+
+build cmake_object_order_depends_target_Huffman: phony || CMakeFiles/Huffman.dir
+
+build CMakeFiles/Huffman.dir/Huffman/Huffman.c.obj: C_COMPILER__Huffman_unscanned_Debug C$:/Users/user/CLionProjects/NSU-learning/2nd_Term/Huffman/Huffman.c || cmake_object_order_depends_target_Huffman
+  DEP_FILE = CMakeFiles\Huffman.dir\Huffman\Huffman.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Huffman.dir
+  OBJECT_FILE_DIR = CMakeFiles\Huffman.dir\Huffman
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Huffman
+
+
+#############################################
+# Link the executable Huffman.exe
+
+build Huffman.exe: C_EXECUTABLE_LINKER__Huffman_Debug CMakeFiles/Huffman.dir/Huffman/Huffman.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Huffman.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Huffman.exe
+  TARGET_IMPLIB = libHuffman.dll.a
+  TARGET_PDB = Huffman.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -132,7 +321,17 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build Huffman: phony Huffman.exe
+
+build Kosaraju: phony Kosaraju.exe
+
 build NSU_learning: phony NSU_learning.exe
+
+build lab7: phony lab7.exe
+
+build lab8: phony lab8.exe
+
+build lab8-1: phony lab8-1.exe
 
 build lab9: phony lab9.exe
 
@@ -144,7 +343,7 @@ build lab9: phony lab9.exe
 #############################################
 # Folder: C:/Users/user/CLionProjects/NSU-learning/2nd_Term/cmake-build-debug
 
-build all: phony NSU_learning.exe lab9.exe
+build all: phony NSU_learning.exe lab9.exe lab8.exe lab8-1.exe lab7.exe Kosaraju.exe Huffman.exe
 
 # =============================================================================
 # Built-in targets
