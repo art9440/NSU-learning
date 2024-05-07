@@ -8,7 +8,6 @@
 #define NODE struct node
 #define CODE struct code
 #define BITSTREAM struct bitstream
-#define ERRORS enum errors
 
 #define BUFFER 8
 #define OCTET 32
@@ -39,10 +38,6 @@ BITSTREAM{
     int position;
 };
 
-ERRORS{
-    non_error,
-    error
-};
 
 
 
@@ -265,39 +260,39 @@ void encode(FILE * input, FILE * output) {
     free(stream);
 }
 
-ERRORS read_bit(int  *bit, BITSTREAM * stream){
+int read_bit(int  *bit, BITSTREAM * stream){
     if (stream->position == 0) {
         if (fread(&(stream->data), sizeof(char), 1, stream->file) != 1)
-            return error;
+            return 1;
         stream->position = BUFFER;
     }
 
     stream->position--;
     *bit = (stream->data >> stream->position) & 1;
-    return non_error;
+    return 0;
 }
 
-ERRORS read_symbol(wchar_t * symbol, BITSTREAM * stream){
+int read_symbol(wchar_t * symbol, BITSTREAM * stream){
     *symbol = 0;
     for (int i = 0; i < OCTET; i++){
         *symbol = *symbol << 1;
         int bit;
 
-        if(read_bit(&bit, stream) == error)
-            return error;
+        if(read_bit(&bit, stream) == 1)
+            return 1;
         *symbol = *symbol | bit;
     }
-    return non_error;
+    return 0;
 }
 
 
 NODE * Get_Tree(BITSTREAM * stream){
     int bit;
-    if(read_bit(&bit, stream) == error)
+    if(read_bit(&bit, stream) == 1)
         return NULL;
     if (bit == 1){
         wchar_t symbol;
-        if(read_symbol(&symbol, stream) == error)
+        if(read_symbol(&symbol, stream) == 1)
             return NULL;
         return Creating_node(symbol, 0, NULL, NULL);
     }
