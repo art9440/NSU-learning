@@ -178,6 +178,7 @@ void coding_text(wchar_t symbol, BITSTREAM * stream, CODE * codes, int codes_len
     }
     for (int j = codes[i].len - 1; j >= 0; j--){
         int bit = (codes[i].code >> j) & 1;
+        printf("%d==\n", bit);
         write_bit(stream, bit);
     }
 }
