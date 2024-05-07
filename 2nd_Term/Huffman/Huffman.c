@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <wchar.h>
 #include <locale.h>
 
 
@@ -163,7 +162,6 @@ void print_tree(NODE * tree){
         print_tree(tree->left);
     if (tree->right != NULL)
         print_tree(tree->right);
-    return;
 }
 
 void print_queue(QUEUE * queue){
@@ -187,6 +185,7 @@ void coding_text(wchar_t symbol, BITSTREAM * stream, CODE * codes, int codes_len
 void To_queue(QUEUE * queue, FILE * input){
     wchar_t symbol;
     while ((symbol = fgetwc(input)) != WEOF) {
+        printf(" %d ", symbol);
         int check_in_queue = 0;
         for (int i = 0; i < queue->size; i++){
             if (queue->heap_for_huffman[i]->symbol == symbol) {
@@ -212,14 +211,14 @@ void To_queue(QUEUE * queue, FILE * input){
 }
 
 
-void incode(FILE * input, FILE * output) {
+void encode(FILE * input, FILE * output) {
     wchar_t symbol;
 
     BITSTREAM * stream = Creating_bitstream(output);
 
     QUEUE * priority_queue = Creating_queue();
     To_queue(priority_queue, input);
-    printf("%d[[[[[[\n", priority_queue->size );
+    printf("%d[[[[[[\n", priority_queue->size);
 
     CODE * all_codes = (CODE*)malloc(priority_queue->size * sizeof(CODE));
 
@@ -253,13 +252,12 @@ void incode(FILE * input, FILE * output) {
     free(stream);
 }
 
-int read_bit(int  bit, BITSTREAM * stream){
+void read_bit(int  *bit, BITSTREAM * stream){
     if (stream->position == 0)
         stream->position = BUFFER;
 
     stream->position = -1;
-    bit = (stream->data >> stream->position) & 1;
-    return bit;
+    *bit = (stream->data >> stream->position) & 1;
 }
 
 void read_symbol(wchar_t * symbol, BITSTREAM * stream){
@@ -267,7 +265,7 @@ void read_symbol(wchar_t * symbol, BITSTREAM * stream){
     for (int i = 0; i < OCTET; i++){
         *symbol = *symbol << 1;
         int bit;
-        bit = read_bit(bit, stream);
+        read_bit(&bit, stream);
         *symbol = *symbol | bit;
     }
 }
@@ -275,7 +273,7 @@ void read_symbol(wchar_t * symbol, BITSTREAM * stream){
 
 NODE * Get_Tree(BITSTREAM * stream){
     int bit;
-    bit = read_bit(bit, stream);
+    read_bit(&bit, stream);
     printf("%d", bit);
     if (bit == 1){
         wchar_t symbol;
@@ -291,7 +289,7 @@ void Get_symbol(wchar_t * symbol, BITSTREAM * stream, NODE * tree){
     NODE * cur = tree;
     while (!last_child(cur)){
         int bit;
-        bit = read_bit(bit, stream);
+        read_bit(&bit, stream);
         if (bit == 0)
             cur = cur->left;
         else
@@ -338,9 +336,9 @@ int main(int argc, char * argv[]){
     char * output_file = argv[3];
 
     if (strcmp(action, "c") == 0) {
-        FILE * input = fopen(input_file, "r+, ccs=UTF-8");
+        FILE * input = fopen(input_file, "rb");
         FILE * output = fopen(output_file, "wb");
-        incode(input, output);
+        encode(input, output);
         fclose(input);
         fclose(output);
     }
