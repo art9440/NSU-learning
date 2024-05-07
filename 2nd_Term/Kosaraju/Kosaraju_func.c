@@ -83,6 +83,7 @@ void find_SCC(GRAPH * graph, STACK * stack, int * visited){
     int colour = 0;
     while (stack -> top != -1){
         int cur = pop_stack(stack);
+        printf("%d", cur + 1);
         if (!visited[cur])
             dfs_for_result(graph, visited, cur, ++colour);
 

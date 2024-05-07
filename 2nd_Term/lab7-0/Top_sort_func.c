@@ -33,20 +33,20 @@ void push_stack(STACK * stack, int cur){
 
 
 void dfs(GRAPH* graph, int cur, int* visited, STACK * stack, int* cycle_detect) {
-    visited[cur] = 1;
-    for (int i = 0; i < graph->node_count; i++)
-        if (graph->adj_matrix[cur * graph->node_count + i]) {
-            if (visited[i] == 1) {
-                *cycle_detect = 1;
-                return;
+        visited[cur] = 1;
+        for (int i = 0; i < graph->node_count; i++)
+            if (graph->adj_matrix[cur * graph->node_count + i]) {
+                if (visited[i] == 1) {
+                    *cycle_detect = 1;
+                    return;
+                }
+                else if (!visited[i])
+                    dfs(graph, i, visited, stack, cycle_detect);
             }
-            else if (!visited[i])
-                dfs(graph, i, visited, stack, cycle_detect);
-        }
 
-    push_stack(stack, cur + 1);
-    visited[cur] = 2;
-}
+        push_stack(stack, cur + 1);
+        visited[cur] = 2;
+    }
 
 
 void free_all(int * visited, STACK * stack, GRAPH * graph){

@@ -51,4 +51,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/lab8.dir/DependInfo.cmake"
   "CMakeFiles/lab8-1.dir/DependInfo.cmake"
   "CMakeFiles/lab7.dir/DependInfo.cmake"
+  "CMakeFiles/Kosaraju.dir/DependInfo.cmake"
+  "CMakeFiles/Huffman.dir/DependInfo.cmake"
   )

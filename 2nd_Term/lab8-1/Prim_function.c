@@ -22,12 +22,12 @@ void add_edge(int start, int finish, int weight, GRAPH * graph){
 }
 
 
-int min_key(int * visited, unsigned int * keys, int node_count){
+int min_edge(int * visited, unsigned int * edges, int node_count){
     unsigned int min_key = UINT_MAX;
     int min_index;
     for (int i = 0; i < node_count; i++)
-        if ( visited[i] == 0 &&  keys[i] < min_key){
-            min_key =  keys[i];
+        if ( visited[i] == 0 &&  edges[i] < min_key){
+            min_key =  edges[i];
             min_index = i;
         }
 
@@ -51,33 +51,33 @@ void Prim_alg(GRAPH * graph){
     int node_count = graph -> node_count;
     int * visited;
     int * parents;
-    unsigned int * keys;
+    unsigned int * edges;
     visited = malloc(node_count * sizeof(int));
-    keys = malloc(node_count * sizeof(unsigned int));
+    edges = malloc(node_count * sizeof(unsigned int));
     for (int i = 0; i < node_count; i++) {
         visited[i] = 0;
-        keys[i] = UINT_MAX;
+        edges[i] = UINT_MAX;
     }
     parents = (int*) malloc(node_count * sizeof(int));
 
-    keys[0] = 0;
+    edges[0] = 0;
     parents[0] = -1;
 
     for (int i = 0; i < node_count - 1; i++){
-        int visit = min_key(visited ,keys, node_count);
+        int visit = min_edge(visited ,edges, node_count);
 
         visited[visit] = 1;
         for (int j = 0; j < node_count; j++)
             if (graph -> adj_matrix[visit * node_count + j]
                 && visited[j] == 0 &&
-                graph -> adj_matrix[visit * node_count + j] < keys[j]){
+                graph -> adj_matrix[visit * node_count + j] < edges[j]){
                 parents[j] = visit;
-                keys[j] = graph->adj_matrix[visit * node_count + j];
+                edges[j] = graph->adj_matrix[visit * node_count + j];
             }
 
     }
     for (int i = 0; i < node_count; i++)
-        if (keys[i] == UINT_MAX) {
+        if (edges[i] == UINT_MAX) {
             puts("no spanning tree");
             return;
         }

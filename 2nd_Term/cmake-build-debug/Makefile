@@ -180,6 +180,32 @@ lab7/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/build
 .PHONY : lab7/fast
 
+#=============================================================================
+# Target rules for targets named Kosaraju
+
+# Build rule for target.
+Kosaraju: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Kosaraju
+.PHONY : Kosaraju
+
+# fast build rule for target.
+Kosaraju/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/build
+.PHONY : Kosaraju/fast
+
+#=============================================================================
+# Target rules for targets named Huffman
+
+# Build rule for target.
+Huffman: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Huffman
+.PHONY : Huffman
+
+# fast build rule for target.
+Huffman/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Huffman.dir\build.make CMakeFiles/Huffman.dir/build
+.PHONY : Huffman/fast
+
 AVL_tree/AVL_tree.obj: AVL_tree/AVL_tree.c.obj
 .PHONY : AVL_tree/AVL_tree.obj
 
@@ -203,6 +229,78 @@ AVL_tree/AVL_tree.s: AVL_tree/AVL_tree.c.s
 AVL_tree/AVL_tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NSU_learning.dir\build.make CMakeFiles/NSU_learning.dir/AVL_tree/AVL_tree.c.s
 .PHONY : AVL_tree/AVL_tree.c.s
+
+Huffman/Huffman.obj: Huffman/Huffman.c.obj
+.PHONY : Huffman/Huffman.obj
+
+# target to build an object file
+Huffman/Huffman.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Huffman.dir\build.make CMakeFiles/Huffman.dir/Huffman/Huffman.c.obj
+.PHONY : Huffman/Huffman.c.obj
+
+Huffman/Huffman.i: Huffman/Huffman.c.i
+.PHONY : Huffman/Huffman.i
+
+# target to preprocess a source file
+Huffman/Huffman.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Huffman.dir\build.make CMakeFiles/Huffman.dir/Huffman/Huffman.c.i
+.PHONY : Huffman/Huffman.c.i
+
+Huffman/Huffman.s: Huffman/Huffman.c.s
+.PHONY : Huffman/Huffman.s
+
+# target to generate assembly for a file
+Huffman/Huffman.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Huffman.dir\build.make CMakeFiles/Huffman.dir/Huffman/Huffman.c.s
+.PHONY : Huffman/Huffman.c.s
+
+Kosaraju/Kosaraju.obj: Kosaraju/Kosaraju.c.obj
+.PHONY : Kosaraju/Kosaraju.obj
+
+# target to build an object file
+Kosaraju/Kosaraju.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju.c.obj
+.PHONY : Kosaraju/Kosaraju.c.obj
+
+Kosaraju/Kosaraju.i: Kosaraju/Kosaraju.c.i
+.PHONY : Kosaraju/Kosaraju.i
+
+# target to preprocess a source file
+Kosaraju/Kosaraju.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju.c.i
+.PHONY : Kosaraju/Kosaraju.c.i
+
+Kosaraju/Kosaraju.s: Kosaraju/Kosaraju.c.s
+.PHONY : Kosaraju/Kosaraju.s
+
+# target to generate assembly for a file
+Kosaraju/Kosaraju.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju.c.s
+.PHONY : Kosaraju/Kosaraju.c.s
+
+Kosaraju/Kosaraju_func.obj: Kosaraju/Kosaraju_func.c.obj
+.PHONY : Kosaraju/Kosaraju_func.obj
+
+# target to build an object file
+Kosaraju/Kosaraju_func.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju_func.c.obj
+.PHONY : Kosaraju/Kosaraju_func.c.obj
+
+Kosaraju/Kosaraju_func.i: Kosaraju/Kosaraju_func.c.i
+.PHONY : Kosaraju/Kosaraju_func.i
+
+# target to preprocess a source file
+Kosaraju/Kosaraju_func.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju_func.c.i
+.PHONY : Kosaraju/Kosaraju_func.c.i
+
+Kosaraju/Kosaraju_func.s: Kosaraju/Kosaraju_func.c.s
+.PHONY : Kosaraju/Kosaraju_func.s
+
+# target to generate assembly for a file
+Kosaraju/Kosaraju_func.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/Kosaraju/Kosaraju_func.c.s
+.PHONY : Kosaraju/Kosaraju_func.c.s
 
 lab7-0/Top_Sort.obj: lab7-0/Top_Sort.c.obj
 .PHONY : lab7-0/Top_Sort.obj
@@ -359,6 +457,8 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Huffman
+	@echo ... Kosaraju
 	@echo ... NSU_learning
 	@echo ... lab7
 	@echo ... lab8
@@ -367,6 +467,15 @@ help:
 	@echo ... AVL_tree/AVL_tree.obj
 	@echo ... AVL_tree/AVL_tree.i
 	@echo ... AVL_tree/AVL_tree.s
+	@echo ... Huffman/Huffman.obj
+	@echo ... Huffman/Huffman.i
+	@echo ... Huffman/Huffman.s
+	@echo ... Kosaraju/Kosaraju.obj
+	@echo ... Kosaraju/Kosaraju.i
+	@echo ... Kosaraju/Kosaraju.s
+	@echo ... Kosaraju/Kosaraju_func.obj
+	@echo ... Kosaraju/Kosaraju_func.i
+	@echo ... Kosaraju/Kosaraju_func.s
 	@echo ... lab7-0/Top_Sort.obj
 	@echo ... lab7-0/Top_Sort.i
 	@echo ... lab7-0/Top_Sort.s

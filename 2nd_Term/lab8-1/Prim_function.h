@@ -11,7 +11,7 @@ GRAPH{
 
 GRAPH * Create_graph(GRAPH * graph, int node_count);
 void add_edge(int start, int finish, int weight, GRAPH * graph);
-int min_key(int * visited, unsigned int * keys, int node_count);
+int min_edge(int * visited, unsigned int * edges, int node_count);
 void print_Prim(int * parents, int node_count);
 void free_graph(GRAPH * graph);
 void Prim_alg(GRAPH * graph);

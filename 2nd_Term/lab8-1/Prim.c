@@ -25,7 +25,7 @@ int Check_for_errors(int node_count, int edge_count){
 
 
 int main(){
-    FILE *file = fopen("in.txt", "r");
+    FILE *file = fopen("input.txt", "r");
     int node_count, edge_count;
     GRAPH * graph = NULL;
 

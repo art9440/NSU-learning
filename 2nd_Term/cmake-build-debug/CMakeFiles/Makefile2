@@ -67,6 +67,8 @@ all: CMakeFiles/lab9.dir/all
 all: CMakeFiles/lab8.dir/all
 all: CMakeFiles/lab8-1.dir/all
 all: CMakeFiles/lab7.dir/all
+all: CMakeFiles/Kosaraju.dir/all
+all: CMakeFiles/Huffman.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -79,6 +81,8 @@ clean: CMakeFiles/lab9.dir/clean
 clean: CMakeFiles/lab8.dir/clean
 clean: CMakeFiles/lab8-1.dir/clean
 clean: CMakeFiles/lab7.dir/clean
+clean: CMakeFiles/Kosaraju.dir/clean
+clean: CMakeFiles/Huffman.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -88,7 +92,7 @@ clean: CMakeFiles/lab7.dir/clean
 CMakeFiles/NSU_learning.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NSU_learning.dir\build.make CMakeFiles/NSU_learning.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NSU_learning.dir\build.make CMakeFiles/NSU_learning.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target NSU_learning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=6,7 "Built target NSU_learning"
 .PHONY : CMakeFiles/NSU_learning.dir/all
 
 # Build rule for subdir invocation for target.
@@ -114,7 +118,7 @@ CMakeFiles/NSU_learning.dir/clean:
 CMakeFiles/lab9.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab9.dir\build.make CMakeFiles/lab9.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab9.dir\build.make CMakeFiles/lab9.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=12,13 "Built target lab9"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=17,18 "Built target lab9"
 .PHONY : CMakeFiles/lab9.dir/all
 
 # Build rule for subdir invocation for target.
@@ -140,7 +144,7 @@ CMakeFiles/lab9.dir/clean:
 CMakeFiles/lab8.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8.dir\build.make CMakeFiles/lab8.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=6,7,8 "Built target lab8"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=11,12,13 "Built target lab8"
 .PHONY : CMakeFiles/lab8.dir/all
 
 # Build rule for subdir invocation for target.
@@ -166,7 +170,7 @@ CMakeFiles/lab8.dir/clean:
 CMakeFiles/lab8-1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab8-1.dir\build.make CMakeFiles/lab8-1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=9,10,11 "Built target lab8-1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=14,15,16 "Built target lab8-1"
 .PHONY : CMakeFiles/lab8-1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -192,7 +196,7 @@ CMakeFiles/lab8-1.dir/clean:
 CMakeFiles/lab7.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=3,4,5 "Built target lab7"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=8,9,10 "Built target lab7"
 .PHONY : CMakeFiles/lab7.dir/all
 
 # Build rule for subdir invocation for target.
@@ -210,6 +214,58 @@ lab7: CMakeFiles/lab7.dir/rule
 CMakeFiles/lab7.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab7.dir\build.make CMakeFiles/lab7.dir/clean
 .PHONY : CMakeFiles/lab7.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Kosaraju.dir
+
+# All Build rule for target.
+CMakeFiles/Kosaraju.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=3,4,5 "Built target Kosaraju"
+.PHONY : CMakeFiles/Kosaraju.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Kosaraju.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Kosaraju.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/Kosaraju.dir/rule
+
+# Convenience name for target.
+Kosaraju: CMakeFiles/Kosaraju.dir/rule
+.PHONY : Kosaraju
+
+# clean rule for target.
+CMakeFiles/Kosaraju.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kosaraju.dir\build.make CMakeFiles/Kosaraju.dir/clean
+.PHONY : CMakeFiles/Kosaraju.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Huffman.dir
+
+# All Build rule for target.
+CMakeFiles/Huffman.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Huffman.dir\build.make CMakeFiles/Huffman.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Huffman.dir\build.make CMakeFiles/Huffman.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target Huffman"
+.PHONY : CMakeFiles/Huffman.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Huffman.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Huffman.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\user\CLionProjects\NSU-learning\2nd_Term\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/Huffman.dir/rule
+
+# Convenience name for target.
+Huffman: CMakeFiles/Huffman.dir/rule
+.PHONY : Huffman
+
+# clean rule for target.
+CMakeFiles/Huffman.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Huffman.dir\build.make CMakeFiles/Huffman.dir/clean
+.PHONY : CMakeFiles/Huffman.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
