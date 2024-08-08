@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Tree.h"
+#include "tree.h"
 
 
 char * getSentence(char*buffer){ //take string without number from file

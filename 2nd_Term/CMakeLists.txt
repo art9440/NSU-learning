@@ -27,7 +27,7 @@ add_executable(Kosaraju Kosaraju/Kosaraju.c
         Kosaraju/Kosaraju_func.c
         Kosaraju/Kosaraju_func.h)
 add_executable(Huffman Huffman/Huffman.c)
-add_executable(Akinator Akinator/akinator.c
-        Akinator/tree.h)
-add_executable(Calculator Calculator/Calculator.c
-        Calculator/Stack.h)
+add_executable(../1st_term/Akinator ../1st_term/Akinator/akinator.c
+        ../1st_term/Akinator/tree.h)
+add_executable(../1st_term/Calculator ../1st_term/Calculator/Calculator.c
+        ../1st_term/Calculator/Stack.h)
