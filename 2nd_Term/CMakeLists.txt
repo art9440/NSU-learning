@@ -38,3 +38,4 @@ add_executable(quickSort ../1st_term/quickSort/quickSort.c)
 add_executable(Deikstra-lab2 ../1st_term/Deikstra-lab2/lab2.c)
 
 
+add_executable(lab0 ../1st_term/lab0/lab0.c)
