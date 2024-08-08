@@ -28,9 +28,13 @@ add_executable(Kosaraju Kosaraju/Kosaraju.c
         Kosaraju/Kosaraju_func.h)
 add_executable(Huffman Huffman/Huffman.c)
 
-add_executable(../1st_term/Akinator ../1st_term/Akinator/akinator.c
+add_executable(Akinator ../1st_term/Akinator/akinator.c
         ../1st_term/Akinator/tree.h)
-add_executable(../1st_term/Calculator ../1st_term/Calculator/Calculator.c
+add_executable(Calculator ../1st_term/Calculator/Calculator.c
         ../1st_term/Calculator/Stack.h)
 add_executable(Boera-Mur ../1st_term/Boera-Mur-lab1-0/lab1-0.c)
 add_executable(quickSort ../1st_term/quickSort/quickSort.c)
+
+add_executable(Deikstra-lab2 ../1st_term/Deikstra-lab2/lab2.c)
+
+
