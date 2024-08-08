@@ -332,7 +332,7 @@ void decode(FILE * input, FILE * output){
     //puts("*");
     NODE * tree = Get_Tree(stream);
     //puts("#");
-    print_tree(tree);
+    //print_tree(tree);
 
     for (int i = 0; i < len; i++){
         wchar_t symbol;
